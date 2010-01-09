@@ -53,6 +53,7 @@ namespace _3dWaves
             waveHue2.Normalize();
 
             waveViewer.BraneMatrixHue = braneBuilder.Build(waveHue1, waveHue2, precision, frameWidth, frameHeight);
+            //waveViewer.BraneMatrixHue = waveViewer.BraneMatrixHeight;
 
             Application.Run(waveViewer);
         }
