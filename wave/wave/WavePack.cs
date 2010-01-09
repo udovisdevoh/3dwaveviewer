@@ -11,6 +11,8 @@ namespace _3dWaves
         private List<IWave> waveList = new List<IWave>();
 
         private double normalizationMultiplicator = 1.0;
+
+        private WaveCache waveCache = new WaveCache();
         #endregion
 
         #region Constructor
@@ -162,9 +164,21 @@ namespace _3dWaves
         public double GetYValueAt(double x)
         {
             double value = 0.0;
-            foreach (IWave iWave in waveList)
-                value += iWave.GetYValueAt(x);
+
+            if (waveCache.ContainsKey(x))
+            {
+                value = waveCache.Get(x);
+            }
+            else
+            {
+                foreach (IWave iWave in waveList)
+                    value += iWave.GetYValueAt(x);
+
+                waveCache.Add(x, value);
+            }
+
             value *= normalizationMultiplicator;
+
             return value;
         }
 

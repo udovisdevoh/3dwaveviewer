@@ -30,6 +30,8 @@ namespace _3dWaves
         /// Wave's function
         /// </summary>
         private WaveFunction waveFunction;
+
+        private WaveCache waveCache = new WaveCache();
         #endregion
 
         #region Constructors
@@ -92,8 +94,20 @@ namespace _3dWaves
         #region IWave Members
         public double GetYValueAt(double x)
         {
-            x += (phase / frequency);
-            return waveFunction(Math.PI * x * frequency) * amplitude * -1.0;
+            double value = 0.0;
+
+            if (waveCache.ContainsKey(x))
+            {
+                value = waveCache.Get(x);
+            }
+            else
+            {
+                x += (phase / frequency);
+                value = waveFunction(Math.PI * x * frequency) * amplitude * -1.0;
+                waveCache.Add(x, value);
+            }
+
+            return value;
         }
 
         public void Normalize()
