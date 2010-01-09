@@ -19,7 +19,8 @@ namespace _3dWaves
 
         public void Add(double x, double value)
         {
-            internalCache.Add(x,value);
+            if (!internalCache.ContainsKey(x))
+                internalCache.Add(x,value);
         }
 
         public double Get(double x)
