@@ -8,16 +8,20 @@ namespace _3dWaves
     class BraneBuilder
     {
         #region Fields
-        private int frameWidth = 800;
+        private double precision;
 
-        private int frameHeight = 600;
+        private int frameWidth;
 
-        private double precision = 0.01;
+        private int frameHeight;
         #endregion
 
         #region Public Methods
-        public BraneMatrix Build(IWave wave1, IWave wave2)
+        public BraneMatrix Build(IWave wave1, IWave wave2, double precision, int frameWidth, int frameHeight)
         {
+            this.precision = precision;
+            this.frameWidth = frameWidth;
+            this.frameHeight = frameHeight;
+
             BraneMatrix braneMatrix = new BraneMatrix();
 
             SingleWaveViewModel singleWaveModel;
