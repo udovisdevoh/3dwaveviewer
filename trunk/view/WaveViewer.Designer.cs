@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(832, 613);
+            this.ClientSize = new System.Drawing.Size(1056, 781);
             this.Name = "WaveViewer";
             this.Text = "Form1";
             this.ResumeLayout(false);

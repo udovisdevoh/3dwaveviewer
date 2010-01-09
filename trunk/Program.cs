@@ -8,9 +8,9 @@ namespace _3dWaves
     class Program
     {
         #region Parts
-        private int frameWidth = 800;
+        private int frameWidth = 1024;
 
-        private int frameHeight = 600;
+        private int frameHeight = 768;
 
         private WaveViewer waveViewer;
 
@@ -39,10 +39,9 @@ namespace _3dWaves
             Random random = new Random();
 
             waveViewer.BraneMatrixHeight = BuildMatrix(random);
-
             waveViewer.BraneMatrixHue = BuildMatrix(random);
-
             waveViewer.BraneMatrixSaturation = BuildMatrix(random);
+            waveViewer.BraneMatrixStraff = BuildMatrix(random);
 
             Application.Run(waveViewer);
         }
