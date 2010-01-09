@@ -42,36 +42,6 @@ namespace _3dWaves
             Graphics graphics = paintEvent.Graphics;
 
             DrawHalfBrane(graphics, wave1, wave2, false);
-            DrawHalfBrane(graphics, wave2, wave1, true);
-
-            /*
-            double wave1Height, wave2Height;
-            int x, y, previousX = -1, previousY = -1;
-
-            for (double wave1Position = 0.0; wave1Position <= 1.0; wave1Position += 0.01)
-            {
-                wave1Height = wave1.GetYValueAt(wave1Position) + 1.0;
-
-                x = (int)(wave1Position * (double)width);
-                y = (int)(wave1Height * (double)(height /2));
-
-                if (y > height)
-                    y = height;
-                else if (y < 0)
-                    y = 0;
-
-                if (x > width)
-                    x = width;
-                else if (x < 0)
-                    x = 0;
-
-                if (previousX!= -1)
-                    graphics.DrawLine(whitePen, previousX, previousY, x,y);
-
-                previousX = x;
-                previousY = y;
-            }
-            */
         }
         #endregion
 

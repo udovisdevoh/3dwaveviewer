@@ -78,6 +78,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="wave\WaveBuilder.cs" />
+    <Compile Include="wave\WaveCache.cs" />
     <Compile Include="wave\WaveFunctions.cs" />
     <Compile Include="wave\wave\IWave.cs" />
     <Compile Include="wave\wave\Wave.cs" />
