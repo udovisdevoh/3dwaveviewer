@@ -74,5 +74,27 @@ namespace _3dWaves
             return (x - Math.Round(x)) * -1.0;
         }
         #endregion
+
+        #region Properties
+        public static WaveFunction Sine
+        {
+            get { return sine; }
+        }
+
+        public static WaveFunction Square
+        {
+            get { return square; }
+        }
+
+        public static WaveFunction Saw
+        {
+            get { return saw; }
+        }
+
+        public static WaveFunction NegativeSaw
+        {
+            get { return negativeSaw; }
+        }
+        #endregion
     }
 }
