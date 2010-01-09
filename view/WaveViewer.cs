@@ -26,7 +26,7 @@ namespace _3dWaves
 
         private Pen pen = new Pen(Color.White);
 
-        private double precision = 0.025;
+        private double precision = 0.01;
         #endregion
 
         #region Constructor
