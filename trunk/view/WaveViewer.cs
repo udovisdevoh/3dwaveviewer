@@ -15,13 +15,13 @@ namespace _3dWaves
         #region Fields
         private BraneMatrix braneMatrix;
 
-        private int frameWidth = 800;
+        private int frameWidth;
 
-        private int frameHeight = 600;
+        private int frameHeight;
 
         private Pen pen = new Pen(Color.White);
 
-        private double precision = 0.01;
+        private double precision;
         #endregion
 
         #region Constructor
@@ -72,7 +72,7 @@ namespace _3dWaves
                 if (previousX != -1)
                     graphics.DrawLine(pen, previousX, previousY, x, y);
 
-                if (previousSingleWaveModel != null && previousWaveModelY <= y)
+                if (previousSingleWaveModel != null)
                     graphics.DrawLine(pen, previousWaveModelX, previousWaveModelY, x, y);
 
                 previousX = x;
