@@ -12,9 +12,9 @@ namespace _3dWaves
     public partial class WaveViewer : Form
     {
         #region Fields
-        private int width = 800;
+        private int frameWidth = 800;
 
-        private int height = 600;
+        private int frameHeight = 600;
 
         private IWave wave1;
 
@@ -24,7 +24,9 @@ namespace _3dWaves
 
         private Pen whitePen = new Pen(Color.White);
 
-        private Pen currentPen;
+        private Pen pen = new Pen(Color.White);
+
+        private double precision = 0.01;
         #endregion
 
         #region Constructor
@@ -39,6 +41,10 @@ namespace _3dWaves
         {
             Graphics graphics = paintEvent.Graphics;
 
+            DrawHalfBrane(graphics, wave1, wave2, false);
+            //DrawHalfBrane(graphics, wave2, wave1, true);
+
+            /*
             double wave1Height, wave2Height;
             int x, y, previousX = -1, previousY = -1;
 
@@ -65,6 +71,83 @@ namespace _3dWaves
                 previousX = x;
                 previousY = y;
             }
+            */
+        }
+        #endregion
+
+        #region Private Methods
+        /// <summary>
+        /// Draw half of a brain
+        /// </summary>
+        /// <param name="graphics">graphics</param>
+        /// <param name="wave">source wave</param>
+        /// <param name="isInverted">whether the picture is horizontally mirrored</param>
+        private void DrawHalfBrane(Graphics graphics, IWave primaryWave, IWave secondaryWave, bool isInverted)
+        {
+            for (double currentWaveCount = 0.0; currentWaveCount <= 2.0; currentWaveCount += precision)
+                DrawString(graphics, primaryWave, secondaryWave, isInverted, currentWaveCount);
+        }
+
+        private void DrawString(Graphics graphics, IWave primaryWave, IWave secondaryWave, bool isInverted, double currentWaveCount)
+        {
+            int x, y, previousX = -1, previousY = -1;
+            double waveHeight;
+            int heightOffset;
+            for (double wavePosition = 0.0; wavePosition <= 1.0; wavePosition += precision)
+            {
+                waveHeight = primaryWave.GetYValueAt(wavePosition) + 1.0;
+
+                x = (int)(wavePosition * (double)frameWidth);
+                y = (int)(currentWaveCount * (double)(frameHeight));
+
+                if (isInverted)
+                    y -= frameHeight - (x / 2);
+                else
+                    y -= x / 2;
+
+                if (isInverted)
+                {
+                    heightOffset = (int)(primaryWave.GetYValueAt(1.0 - wavePosition) * 50.0);
+                    heightOffset -= (int)(secondaryWave.GetYValueAt(1.0 - currentWaveCount) * 50.0);
+                }
+                else
+                {
+                    heightOffset = (int)(primaryWave.GetYValueAt(wavePosition) * 50.0);
+                    heightOffset -= (int)(secondaryWave.GetYValueAt(currentWaveCount) * 50.0);
+                }
+
+                pen.Color = BuildPenColor(y);
+
+                x += y - (frameWidth / 2);
+
+                y += heightOffset;
+
+                if (y > frameHeight)
+                    y = frameHeight;
+                else if (y < 0)
+                    y = 0;
+
+                if (x > frameWidth)
+                    x = frameWidth;
+                else if (x < 0)
+                    x = 0;
+
+                if (previousX != -1)
+                    graphics.DrawLine(pen, previousX, previousY, x, y);
+
+                previousX = x;
+                previousY = y;
+            }
+        }
+
+        private Color BuildPenColor(int height)
+        {
+            int lightness = (int)((double)(height) / frameHeight * 255);
+            if (lightness < 0)
+                lightness = 0;
+            else if (lightness > 255)
+                lightness = 255;
+            return Color.FromArgb(lightness, lightness, lightness);
         }
         #endregion
 
