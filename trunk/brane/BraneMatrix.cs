@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _3dWaves
 {
-    class BraneMatrixViewModel : IList<SingleWaveViewModel>
+    class BraneMatrix : IList<SingleWaveViewModel>
     {
         #region Fields
         private List<SingleWaveViewModel> internalList = new List<SingleWaveViewModel>();
