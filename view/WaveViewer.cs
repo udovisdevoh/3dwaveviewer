@@ -26,6 +26,8 @@ namespace _3dWaves
 
         private Pen pen = new Pen(Color.White);
 
+        private bool isEnabledStraff = true;
+
         private double precision;
         #endregion
 
@@ -160,7 +162,8 @@ namespace _3dWaves
 
             y += heightOffset;
 
-            x += straffOffset;
+            if (isEnabledStraff)
+                x += straffOffset;
 
             if (y > frameHeight)
                 y = frameHeight;
@@ -252,6 +255,12 @@ namespace _3dWaves
         {
             get { return precision; }
             set { precision = value; }
+        }
+
+        public bool IsEnabledStraff
+        {
+            get { return isEnabledStraff; }
+            set { isEnabledStraff = value; }
         }
         #endregion
     }
