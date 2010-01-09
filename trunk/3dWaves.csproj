@@ -48,15 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WaveViewer.cs">
+    <Compile Include="view\SingleWaveViewModel.cs" />
+    <Compile Include="view\WaveViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WaveViewer.Designer.cs">
+    <Compile Include="view\WaveViewer.Designer.cs">
       <DependentUpon>WaveViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="WaveViewer.resx">
+    <EmbeddedResource Include="view\WaveViewer.resx">
       <DependentUpon>WaveViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
