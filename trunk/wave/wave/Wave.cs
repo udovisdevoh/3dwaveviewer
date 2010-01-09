@@ -95,6 +95,11 @@ namespace _3dWaves
             x += (phase / frequency);
             return waveFunction(Math.PI * x * frequency) * amplitude * -1.0;
         }
+
+        public void Normalize()
+        {
+            amplitude = 1.0;
+        }
         #endregion
     }
 }

@@ -9,6 +9,8 @@ namespace _3dWaves
     {
         #region Fields
         private List<IWave> waveList = new List<IWave>();
+
+        private double normalizationMultiplicator = 1.0;
         #endregion
 
         #region Constructor
@@ -162,7 +164,33 @@ namespace _3dWaves
             double value = 0.0;
             foreach (IWave iWave in waveList)
                 value += iWave.GetYValueAt(x);
+            value *= normalizationMultiplicator;
             return value;
+        }
+
+        /// <summary>
+        /// Normalize the wave pack
+        /// </summary>
+        /// <returns></returns>
+        public void Normalize()
+        {
+            double y;
+
+            double maxY = double.NegativeInfinity;
+            double minY = double.PositiveInfinity;
+            for (double x = -2.0; x < 2.0; x += 0.001)
+            {
+                y = GetYValueAt(x);
+                if (y > maxY)
+                    maxY = y;
+
+                if (y < minY)
+                    minY = y;
+            }
+
+            maxY = Math.Max(maxY, minY * -1.0);
+
+            normalizationMultiplicator = 1.0 / maxY;
         }
         #endregion
     }
