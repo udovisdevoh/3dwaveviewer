@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="view\BraneMatrixViewModel.cs" />
-    <Compile Include="view\SingleWaveViewModel.cs" />
+    <Compile Include="brane\BraneMatrix.cs" />
+    <Compile Include="brane\SingleWaveViewModel.cs" />
     <Compile Include="view\WaveViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,12 +79,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="wave\WaveBuilder.cs" />
-    <Compile Include="wave\WaveCache.cs" />
-    <Compile Include="wave\WaveFunctions.cs" />
-    <Compile Include="wave\wave\IWave.cs" />
-    <Compile Include="wave\wave\Wave.cs" />
-    <Compile Include="wave\wave\WavePack.cs" />
+    <Compile Include="brane\wave\WaveBuilder.cs" />
+    <Compile Include="brane\wave\WaveCache.cs" />
+    <Compile Include="brane\wave\WaveFunctions.cs" />
+    <Compile Include="brane\wave\wave\IWave.cs" />
+    <Compile Include="brane\wave\wave\Wave.cs" />
+    <Compile Include="brane\wave\wave\WavePack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

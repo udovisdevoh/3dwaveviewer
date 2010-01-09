@@ -42,7 +42,7 @@ namespace _3dWaves
         {
             Graphics graphics = paintEvent.Graphics;
 
-            BraneMatrixViewModel braneMatrix = BuildBraneMatrix(wave1, wave2);
+            BraneMatrix braneMatrix = BuildBraneMatrix(wave1, wave2);
             DrawBraneMatrix(graphics, braneMatrix);
         }
         #endregion
@@ -53,9 +53,9 @@ namespace _3dWaves
         /// </summary>
         /// <param name="graphics">graphics</param>
         /// <param name="wave">source wave</param>
-        private BraneMatrixViewModel BuildBraneMatrix(IWave primaryWave, IWave secondaryWave)
+        private BraneMatrix BuildBraneMatrix(IWave primaryWave, IWave secondaryWave)
         {
-            BraneMatrixViewModel braneMatrix = new BraneMatrixViewModel();
+            BraneMatrix braneMatrix = new BraneMatrix();
 
             SingleWaveViewModel singleWaveModel;
             for (double currentWaveCount = 0.0; currentWaveCount <= 2.0; currentWaveCount += precision)
@@ -67,7 +67,7 @@ namespace _3dWaves
             return braneMatrix;
         }
 
-        private void DrawBraneMatrix(Graphics graphics, BraneMatrixViewModel braneMatrix)
+        private void DrawBraneMatrix(Graphics graphics, BraneMatrix braneMatrix)
         {
             double currentWaveCount = 0.0;
             double previousWaveCount = 0.0;
