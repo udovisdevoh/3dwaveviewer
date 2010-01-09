@@ -26,7 +26,7 @@ namespace _3dWaves
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            waveViewer = new WaveViewer();
+            waveViewer = new WaveViewer(frameWidth, frameHeight, precision);
         }
         #endregion
 
@@ -38,21 +38,21 @@ namespace _3dWaves
         {
             Random random = new Random();
 
-            IWave wave1 = waveBuilder.Build(random);
-            //wave1 = waveBuilder.BuildSinePlusSquare();
-            wave1.Normalize();
+            IWave waveHeight1 = waveBuilder.Build(random);
+            waveHeight1.Normalize();
             
-            IWave wave2 = waveBuilder.Build(random);
-            //wave2 = waveBuilder.BuildSawPlusSine();
-            wave2.Normalize();
+            IWave waveHeight2 = waveBuilder.Build(random);
+            waveHeight2.Normalize();
 
-            BraneMatrix braneMatrix = braneBuilder.Build(wave1, wave2, precision, frameWidth, frameHeight);
+            waveViewer.BraneMatrixHeight = braneBuilder.Build(waveHeight1, waveHeight2, precision, frameWidth, frameHeight);
 
-            waveViewer.Precision = precision;
-            waveViewer.FrameWidth = frameWidth;
-            waveViewer.FrameHeight = frameHeight;
+            IWave waveHue1 = waveBuilder.Build(random);
+            waveHue1.Normalize();
 
-            waveViewer.BraneMatrix = braneMatrix;
+            IWave waveHue2 = waveBuilder.Build(random);
+            waveHue2.Normalize();
+
+            waveViewer.BraneMatrixHue = braneBuilder.Build(waveHue1, waveHue2, precision, frameWidth, frameHeight);
 
             Application.Run(waveViewer);
         }
