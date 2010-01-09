@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="view\BraneMatrixViewModel.cs" />
     <Compile Include="view\SingleWaveViewModel.cs" />
     <Compile Include="view\WaveViewer.cs">
       <SubType>Form</SubType>
@@ -84,9 +85,6 @@
     <Compile Include="wave\wave\IWave.cs" />
     <Compile Include="wave\wave\Wave.cs" />
     <Compile Include="wave\wave\WavePack.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="waveViewer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
