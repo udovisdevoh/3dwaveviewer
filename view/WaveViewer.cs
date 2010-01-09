@@ -26,7 +26,7 @@ namespace _3dWaves
 
         private Pen pen = new Pen(Color.White);
 
-        private double precision = 0.01;
+        private double precision = 0.025;
         #endregion
 
         #region Constructor
@@ -41,7 +41,7 @@ namespace _3dWaves
         {
             Graphics graphics = paintEvent.Graphics;
 
-            List<double[]> braneMatrix = BuildBraneMatrix(wave1, wave2);
+            List<SingleWaveViewModel> braneMatrix = BuildBraneMatrix(wave1, wave2);
             DrawBraneMatrix(graphics, braneMatrix);
         }
         #endregion
@@ -52,11 +52,11 @@ namespace _3dWaves
         /// </summary>
         /// <param name="graphics">graphics</param>
         /// <param name="wave">source wave</param>
-        private List<double[]> BuildBraneMatrix(IWave primaryWave, IWave secondaryWave)
+        private List<SingleWaveViewModel> BuildBraneMatrix(IWave primaryWave, IWave secondaryWave)
         {
-            List<double[]> braneMatrix = new List<double[]>();
+            List<SingleWaveViewModel> braneMatrix = new List<SingleWaveViewModel>();
 
-            double[] singleWaveModel;
+            SingleWaveViewModel singleWaveModel;
             for (double currentWaveCount = 0.0; currentWaveCount <= 2.0; currentWaveCount += precision)
             {
                 singleWaveModel = BuildSingleWaveModel(primaryWave, secondaryWave, currentWaveCount);
@@ -66,28 +66,29 @@ namespace _3dWaves
             return braneMatrix;
         }
 
-        private void DrawBraneMatrix(Graphics graphics, List<double[]> braneMatrix)
+        private void DrawBraneMatrix(Graphics graphics, List<SingleWaveViewModel> braneMatrix)
         {
             double currentWaveCount = 0.0;
             double previousWaveCount = 0.0;
-            double[] previousSingleWaveModel = null;
-            foreach (double[] singleWaveModel in braneMatrix)
+            SingleWaveViewModel previousSingleWaveModel = null;
+            foreach (SingleWaveViewModel singleWaveModel in braneMatrix)
             {
                 DrawSingleWaveModel(graphics, singleWaveModel, previousSingleWaveModel, currentWaveCount, previousWaveCount);
-                currentWaveCount += precision;
-                
+               
                 previousSingleWaveModel = singleWaveModel;
                 previousWaveCount = currentWaveCount;
+
+                currentWaveCount += precision;
             }
         }
 
-        private double[] BuildSingleWaveModel(IWave primaryWave, IWave secondaryWave, double currentWaveCount)
+        private SingleWaveViewModel BuildSingleWaveModel(IWave primaryWave, IWave secondaryWave, double currentWaveCount)
         {
             double minimumPosition = -0.5;
             double maximumPosition = 1.5;
             int totalCount = (int)((maximumPosition - minimumPosition) / precision);
 
-            double[] singleWaveModel = new double[totalCount *8];
+            SingleWaveViewModel singleWaveModel = new SingleWaveViewModel();
 
             int x;
             int heightOffset;
@@ -105,7 +106,7 @@ namespace _3dWaves
             return singleWaveModel;
         }
 
-        private void DrawSingleWaveModel(Graphics graphics, double[] singleWaveModel, double[] previousSingleWaveModel, double currentWaveCount, double previousWaveCount)
+        private void DrawSingleWaveModel(Graphics graphics, SingleWaveViewModel singleWaveModel, SingleWaveViewModel previousSingleWaveModel, double currentWaveCount, double previousWaveCount)
         {
             int x, y, previousX = -1, previousY = -1;
             int previousWaveModelX = -1, previousWaveModelY = -1;
@@ -122,14 +123,14 @@ namespace _3dWaves
                     graphics.DrawLine(pen, previousX, previousY, x, y);
 
                 if (previousSingleWaveModel != null)
-                    graphics.DrawLine(pen, previousWaveModelX, previousWaveModelY,x ,y);
+                    graphics.DrawLine(pen, previousWaveModelX, previousWaveModelY, x ,y);
 
                 previousX = x;
                 previousY = y;
             }
         }
 
-        private void BuildDrawingPositions(double[] singleWaveModel, double wavePosition, double currentWaveCount, out int x, out int y)
+        private void BuildDrawingPositions(SingleWaveViewModel singleWaveModel, double wavePosition, double currentWaveCount, out int x, out int y)
         {
             int heightOffset;
 
