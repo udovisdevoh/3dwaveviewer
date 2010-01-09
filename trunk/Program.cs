@@ -24,6 +24,9 @@ namespace _3dWaves
         #region Constructors
         public Program()
         {
+            #warning Implement recursive wavePacket
+            #warning Implement anaglyph 4d
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             waveViewer = new WaveViewer(frameWidth, frameHeight, precision);
@@ -42,6 +45,8 @@ namespace _3dWaves
             waveViewer.BraneMatrixHue = BuildMatrix(random);
             waveViewer.BraneMatrixSaturation = BuildMatrix(random);
             waveViewer.BraneMatrixStraff = BuildMatrix(random);
+
+            waveViewer.IsEnabledStraff = false;
 
             Application.Run(waveViewer);
         }
