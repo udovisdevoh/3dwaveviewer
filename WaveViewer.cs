@@ -69,12 +69,15 @@ namespace _3dWaves
         private void DrawBraneMatrix(Graphics graphics, List<double[]> braneMatrix)
         {
             double currentWaveCount = 0.0;
+            double previousWaveCount = 0.0;
             double[] previousSingleWaveModel = null;
             foreach (double[] singleWaveModel in braneMatrix)
             {
-                DrawSingleWaveModel(graphics, singleWaveModel, previousSingleWaveModel, currentWaveCount);
+                DrawSingleWaveModel(graphics, singleWaveModel, previousSingleWaveModel, currentWaveCount, previousWaveCount);
                 currentWaveCount += precision;
+                
                 previousSingleWaveModel = singleWaveModel;
+                previousWaveCount = currentWaveCount;
             }
         }
 
@@ -102,23 +105,24 @@ namespace _3dWaves
             return singleWaveModel;
         }
 
-        private void DrawSingleWaveModel(Graphics graphics, double[] singleWaveModel, double[] previousSingleWaveModel, double currentWaveCount)
+        private void DrawSingleWaveModel(Graphics graphics, double[] singleWaveModel, double[] previousSingleWaveModel, double currentWaveCount, double previousWaveCount)
         {
             int x, y, previousX = -1, previousY = -1;
             int previousWaveModelX = -1, previousWaveModelY = -1;
             for (double wavePosition = -0.5; wavePosition <= 1.5; wavePosition += precision)
             {
                 BuildDrawingPositions(singleWaveModel, wavePosition, currentWaveCount, out x, out y);
+                
                 if (previousSingleWaveModel != null)
-                    BuildDrawingPositions(previousSingleWaveModel, wavePosition, currentWaveCount, out previousWaveModelX, out previousWaveModelY);
+                    BuildDrawingPositions(previousSingleWaveModel, wavePosition, previousWaveCount, out previousWaveModelX, out previousWaveModelY);
 
                 
 
                 if (previousX != -1)
                     graphics.DrawLine(pen, previousX, previousY, x, y);
 
-                //if (previousSingleWaveModel != null)
-                //    graphics.DrawLine(pen, previousWaveModelX, previousWaveModelY,x ,y);
+                if (previousSingleWaveModel != null)
+                    graphics.DrawLine(pen, previousWaveModelX, previousWaveModelY,x ,y);
 
                 previousX = x;
                 previousY = y;
