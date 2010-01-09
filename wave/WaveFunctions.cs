@@ -31,8 +31,6 @@ namespace _3dWaves
         #region Public Methods
         public static WaveFunction GetRandomWaveFunction(Random random)
         {
-#warning Add sawtooth and triangle waveforms and square to other metariffs
-
             int functionType = random.Next(1, 5);
 
             if (functionType == 1)

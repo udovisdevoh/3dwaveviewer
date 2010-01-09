@@ -30,7 +30,11 @@ namespace _3dWaves
         {
             Random random = new Random();
             waveViewer.Wave1 = waveBuilder.Build(random);
+            waveViewer.Wave1.Normalize();
+
             waveViewer.Wave2 = waveBuilder.Build(random);
+            waveViewer.Wave2.Normalize();
+
             Application.Run(waveViewer);
         }
         #endregion

@@ -11,9 +11,18 @@ namespace _3dWaves
         {
             WavePack wavePack = new WavePack();
 
-            wavePack.Add(new Wave(random.NextDouble() * 0.2, 1 * random.Next(1, 5), random.NextDouble(), WaveFunctions.GetRandomWaveFunction(random)));
-            wavePack.Add(new Wave(random.NextDouble() * 0.2, 3 * random.Next(1, 5), random.NextDouble(), WaveFunctions.GetRandomWaveFunction(random)));
+            int waveCount = random.Next(1, random.Next(1, 4) * random.Next(1, 4));
 
+            double amplitude, phase, frequency;
+            WaveFunction waveFunction;
+            for (int i = 0; i < waveCount; i++)
+            {
+                amplitude = random.NextDouble();
+                phase = random.NextDouble();
+                waveFunction = WaveFunctions.GetRandomWaveFunction(random);
+                frequency = random.NextDouble() * random.Next(1, 4) * random.Next(1, 4);
+                wavePack.Add(new Wave(amplitude, frequency, phase, waveFunction));
+            }
             
             return wavePack;
         }

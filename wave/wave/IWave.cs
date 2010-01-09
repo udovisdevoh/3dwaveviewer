@@ -13,5 +13,11 @@ namespace _3dWaves
         /// <param name="x">x coordinates</param>
         /// <returns>amplitude momentum Y value at X</returns>
         double GetYValueAt(double x);
+
+        /// <summary>
+        /// Normalize the wave
+        /// </summary>
+        /// <returns>Normalized wave</returns>
+        void Normalize();
     }
 }
