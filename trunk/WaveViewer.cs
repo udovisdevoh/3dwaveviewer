@@ -93,7 +93,7 @@ namespace _3dWaves
             int x, y, previousX = -1, previousY = -1;
             double waveHeight;
             int heightOffset;
-            for (double wavePosition = 0.0; wavePosition <= 1.0; wavePosition += precision)
+            for (double wavePosition = -0.5; wavePosition <= 1.5; wavePosition += precision)
             {
                 waveHeight = primaryWave.GetYValueAt(wavePosition) + 1.0;
 
