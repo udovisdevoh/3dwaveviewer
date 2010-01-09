@@ -69,10 +69,12 @@ namespace _3dWaves
         private void DrawBraneMatrix(Graphics graphics, List<double[]> braneMatrix)
         {
             double currentWaveCount = 0.0;
+            double[] previousSingleWaveModel = null;
             foreach (double[] singleWaveModel in braneMatrix)
             {
-                DrawSingleWaveModel(graphics, singleWaveModel, currentWaveCount);
+                DrawSingleWaveModel(graphics, singleWaveModel, previousSingleWaveModel, currentWaveCount);
                 currentWaveCount += precision;
+                previousSingleWaveModel = singleWaveModel;
             }
         }
 
@@ -100,43 +102,57 @@ namespace _3dWaves
             return singleWaveModel;
         }
 
-        private void DrawSingleWaveModel(Graphics graphics, double[] singleWaveModel, double currentWaveCount)
+        private void DrawSingleWaveModel(Graphics graphics, double[] singleWaveModel, double[] previousSingleWaveModel, double currentWaveCount)
         {
             int x, y, previousX = -1, previousY = -1;
-            int heightOffset;
+            int previousWaveModelX = -1, previousWaveModelY = -1;
             for (double wavePosition = -0.5; wavePosition <= 1.5; wavePosition += precision)
             {
-                x = (int)(wavePosition * (double)frameWidth);
-                y = (int)(currentWaveCount * (double)(frameHeight));
+                BuildDrawingPositions(singleWaveModel, wavePosition, currentWaveCount, out x, out y);
+                if (previousSingleWaveModel != null)
+                    BuildDrawingPositions(previousSingleWaveModel, wavePosition, currentWaveCount, out previousWaveModelX, out previousWaveModelY);
 
-                y -= x / 2;
-
-                int key = x + frameWidth / 2;
-                heightOffset = (int)singleWaveModel[key];
-
-
-                pen.Color = BuildPenColor(y);
-
-                x += y - (frameWidth / 2);
-
-                y += heightOffset;
-
-                if (y > frameHeight)
-                    y = frameHeight;
-                else if (y < 0)
-                    y = 0;
-
-                if (x > frameWidth)
-                    x = frameWidth;
-                else if (x < 0)
-                    x = 0;
+                
 
                 if (previousX != -1)
                     graphics.DrawLine(pen, previousX, previousY, x, y);
 
+                //if (previousSingleWaveModel != null)
+                //    graphics.DrawLine(pen, previousWaveModelX, previousWaveModelY,x ,y);
+
                 previousX = x;
                 previousY = y;
             }
+        }
+
+        private void BuildDrawingPositions(double[] singleWaveModel, double wavePosition, double currentWaveCount, out int x, out int y)
+        {
+            int heightOffset;
+
+            x = (int)(wavePosition * (double)frameWidth);
+            y = (int)(currentWaveCount * (double)(frameHeight));
+
+            y -= x / 2;
+
+            int key = x + frameWidth / 2;
+            heightOffset = (int)singleWaveModel[key];
+
+
+            pen.Color = BuildPenColor(y);
+
+            x += y - (frameWidth / 2);
+
+            y += heightOffset;
+
+            if (y > frameHeight)
+                y = frameHeight;
+            else if (y < 0)
+                y = 0;
+
+            if (x > frameWidth)
+                x = frameWidth;
+            else if (x < 0)
+                x = 0;
         }
 
         private Color BuildPenColor(int height)
