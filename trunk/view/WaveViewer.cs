@@ -13,17 +13,11 @@ namespace _3dWaves
     public partial class WaveViewer : Form
     {
         #region Fields
+        private BraneMatrix braneMatrix;
+
         private int frameWidth = 800;
 
         private int frameHeight = 600;
-
-        private IWave wave1;
-
-        private IWave wave2;
-
-        private Pen blackPen = new Pen(Color.Black);
-
-        private Pen whitePen = new Pen(Color.White);
 
         private Pen pen = new Pen(Color.White);
 
@@ -41,32 +35,11 @@ namespace _3dWaves
         protected override void OnPaint(PaintEventArgs paintEvent)
         {
             Graphics graphics = paintEvent.Graphics;
-
-            BraneMatrix braneMatrix = BuildBraneMatrix(wave1, wave2);
             DrawBraneMatrix(graphics, braneMatrix);
         }
         #endregion
 
         #region Private Methods
-        /// <summary>
-        /// Build brane matrix
-        /// </summary>
-        /// <param name="graphics">graphics</param>
-        /// <param name="wave">source wave</param>
-        private BraneMatrix BuildBraneMatrix(IWave primaryWave, IWave secondaryWave)
-        {
-            BraneMatrix braneMatrix = new BraneMatrix();
-
-            SingleWaveViewModel singleWaveModel;
-            for (double currentWaveCount = 0.0; currentWaveCount <= 2.0; currentWaveCount += precision)
-            {
-                singleWaveModel = BuildSingleWaveModel(primaryWave, secondaryWave, currentWaveCount);
-                braneMatrix.Add(singleWaveModel);
-            }
-
-            return braneMatrix;
-        }
-
         private void DrawBraneMatrix(Graphics graphics, BraneMatrix braneMatrix)
         {
             double currentWaveCount = 0.0;
@@ -81,30 +54,6 @@ namespace _3dWaves
 
                 currentWaveCount += precision;
             }
-        }
-
-        private SingleWaveViewModel BuildSingleWaveModel(IWave primaryWave, IWave secondaryWave, double currentWaveCount)
-        {
-            double minimumPosition = -0.5;
-            double maximumPosition = 1.5;
-            int totalCount = (int)((maximumPosition - minimumPosition) / precision);
-
-            SingleWaveViewModel singleWaveModel = new SingleWaveViewModel();
-
-            int x;
-            int heightOffset;
-            for (double wavePosition = minimumPosition; wavePosition <= maximumPosition; wavePosition += precision)
-            {
-                x = (int)(wavePosition * (double)frameWidth);
-
-                heightOffset = (int)(primaryWave.GetYValueAt(wavePosition) * 50.0);
-                heightOffset += (int)(secondaryWave.GetYValueAt(currentWaveCount) * 50.0);
-
-                int key = x+ frameWidth/2;
-
-                singleWaveModel[key] = heightOffset;
-            }
-            return singleWaveModel;
         }
 
         private void DrawSingleWaveModel(Graphics graphics, SingleWaveViewModel singleWaveModel, SingleWaveViewModel previousSingleWaveModel, double currentWaveCount, double previousWaveCount)
@@ -198,16 +147,10 @@ namespace _3dWaves
         #endregion
 
         #region Properties
-        public IWave Wave1
+        public BraneMatrix BraneMatrix
         {
-            get { return wave1; }
-            set { wave1 = value; }
-        }
-
-        public IWave Wave2
-        {
-            get { return wave2; }
-            set { wave2 = value; }
+            get { return braneMatrix; }
+            set { braneMatrix = value; }
         }
         #endregion
     }

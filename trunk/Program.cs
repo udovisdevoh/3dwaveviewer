@@ -11,6 +11,8 @@ namespace _3dWaves
         private WaveViewer waveViewer;
 
         private WaveBuilder waveBuilder = new WaveBuilder();
+
+        private BraneBuilder braneBuilder = new BraneBuilder();
         #endregion
 
         #region Constructors
@@ -29,13 +31,17 @@ namespace _3dWaves
         private void Start()
         {
             Random random = new Random();
-            waveViewer.Wave1 = waveBuilder.Build(random);
-            //waveViewer.Wave1 = waveBuilder.BuildSinePlusSquare();
-            waveViewer.Wave1.Normalize();
 
-            waveViewer.Wave2 = waveBuilder.Build(random);
-            //waveViewer.Wave2 = waveBuilder.BuildSawPlusSine();
-            waveViewer.Wave2.Normalize();
+            IWave wave1 = waveBuilder.Build(random);
+            //wave1 = waveBuilder.BuildSinePlusSquare();
+            wave1.Normalize();
+            
+            IWave wave2 = waveBuilder.Build(random);
+            //wave2 = waveBuilder.BuildSawPlusSine();
+            wave2.Normalize();
+            
+            waveViewer.BraneMatrix = braneBuilder.Build(wave1, wave2);
+
 
             Application.Run(waveViewer);
         }
