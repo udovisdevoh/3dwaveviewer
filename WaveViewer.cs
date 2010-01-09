@@ -41,29 +41,42 @@ namespace _3dWaves
         {
             Graphics graphics = paintEvent.Graphics;
 
-            DrawHalfBrane(graphics, wave1, wave2, false);
+            List<double[]> braneMatrix = BuildBraneMatrix(wave1, wave2);
+            DrawBraneMatrix(graphics, braneMatrix);
         }
         #endregion
 
         #region Private Methods
         /// <summary>
-        /// Draw half of a brain
+        /// Build brane matrix
         /// </summary>
         /// <param name="graphics">graphics</param>
         /// <param name="wave">source wave</param>
-        /// <param name="isInverted">whether the picture is horizontally mirrored</param>
-        private void DrawHalfBrane(Graphics graphics, IWave primaryWave, IWave secondaryWave, bool isInverted)
+        private List<double[]> BuildBraneMatrix(IWave primaryWave, IWave secondaryWave)
         {
-            double[] singleWaveModel;
+            List<double[]> braneMatrix = new List<double[]>();
 
+            double[] singleWaveModel;
             for (double currentWaveCount = 0.0; currentWaveCount <= 2.0; currentWaveCount += precision)
             {
-                singleWaveModel = BuildSingleWaveModel(graphics, primaryWave, secondaryWave, currentWaveCount);
+                singleWaveModel = BuildSingleWaveModel(primaryWave, secondaryWave, currentWaveCount);
+                braneMatrix.Add(singleWaveModel);
+            }
+
+            return braneMatrix;
+        }
+
+        private void DrawBraneMatrix(Graphics graphics, List<double[]> braneMatrix)
+        {
+            double currentWaveCount = 0.0;
+            foreach (double[] singleWaveModel in braneMatrix)
+            {
                 DrawSingleWaveModel(graphics, singleWaveModel, currentWaveCount);
+                currentWaveCount += precision;
             }
         }
 
-        private double[] BuildSingleWaveModel(Graphics graphics, IWave primaryWave, IWave secondaryWave, double currentWaveCount)
+        private double[] BuildSingleWaveModel(IWave primaryWave, IWave secondaryWave, double currentWaveCount)
         {
             double minimumPosition = -0.5;
             double maximumPosition = 1.5;
@@ -71,7 +84,7 @@ namespace _3dWaves
 
             double[] singleWaveModel = new double[totalCount *8];
 
-            int x, y;
+            int x;
             int heightOffset;
             for (double wavePosition = minimumPosition; wavePosition <= maximumPosition; wavePosition += precision)
             {
