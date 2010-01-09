@@ -12,6 +12,10 @@ namespace _3dWaves
     public partial class WaveViewer : Form
     {
         #region Fields
+        private int width = 800;
+
+        private int height = 600;
+
         private IWave wave1;
 
         private IWave wave2;
@@ -42,16 +46,16 @@ namespace _3dWaves
             {
                 wave1Height = wave1.GetYValueAt(wave1Position) + 1.0;
 
-                x = (int)(wave1Position * 640.0);
-                y = (int)(wave1Height * 240.0);
-                
-                if (y > 480)
-                    y = 480;
+                x = (int)(wave1Position * (double)width);
+                y = (int)(wave1Height * (double)(height /2));
+
+                if (y > height)
+                    y = height;
                 else if (y < 0)
                     y = 0;
 
-                if (x > 640)
-                    x = 640;
+                if (x > width)
+                    x = width;
                 else if (x < 0)
                     x = 0;
 
