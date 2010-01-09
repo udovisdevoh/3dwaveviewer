@@ -15,12 +15,16 @@ namespace _3dWaves
 
             double amplitude, phase, frequency;
             WaveFunction waveFunction;
+
             for (int i = 0; i < waveCount; i++)
             {
                 amplitude = random.NextDouble();
                 phase = random.NextDouble();
+                if (random.Next(0, 2) == 1)
+                    phase *= -1.0;
+
                 waveFunction = WaveFunctions.GetRandomWaveFunction(random);
-                frequency = random.NextDouble() * random.Next(1, 4) * random.Next(1, 4);
+                frequency = random.NextDouble() * (double)(random.Next(1, 4)) * (double)(random.Next(1, 4));
                 wavePack.Add(new Wave(amplitude, frequency, phase, waveFunction));
             }
             
