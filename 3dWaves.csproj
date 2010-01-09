@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="brane\BraneBuilder.cs" />
     <Compile Include="brane\BraneMatrix.cs" />
     <Compile Include="brane\SingleWaveViewModel.cs" />
     <Compile Include="view\WaveViewer.cs">

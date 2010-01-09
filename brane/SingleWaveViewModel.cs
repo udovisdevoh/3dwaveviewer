@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _3dWaves
 {
-    class SingleWaveViewModel : IDictionary<int,double>
+    public class SingleWaveViewModel : IDictionary<int,double>
     {
         #region Fields
         private Dictionary<int, double> dictionary = new Dictionary<int, double>();
