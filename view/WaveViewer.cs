@@ -90,7 +90,7 @@ namespace _3dWaves
                 if (previousX != -1)
                     graphics.DrawLine(pen, previousX, previousY, x, y);
 
-                if (previousSingleWaveModel != null && previousWaveModelY <= y)
+                if (previousSingleWaveModel != null)
                     graphics.DrawLine(pen, previousWaveModelX, previousWaveModelY, x, y);
 
                 previousX = x;
