@@ -54,44 +54,57 @@ namespace _3dWaves
         /// <param name="isInverted">whether the picture is horizontally mirrored</param>
         private void DrawHalfBrane(Graphics graphics, IWave primaryWave, IWave secondaryWave, bool isInverted)
         {
+            double[] singleWaveModel;
+
             for (double currentWaveCount = 0.0; currentWaveCount <= 2.0; currentWaveCount += precision)
-                DrawString(graphics, primaryWave, secondaryWave, isInverted, currentWaveCount);
+            {
+                singleWaveModel = BuildSingleWaveModel(graphics, primaryWave, secondaryWave, currentWaveCount);
+                DrawSingleWaveModel(graphics, singleWaveModel, currentWaveCount);
+            }
         }
 
-        private void DrawString(Graphics graphics, IWave primaryWave, IWave secondaryWave, bool isInverted, double currentWaveCount)
+        private double[] BuildSingleWaveModel(Graphics graphics, IWave primaryWave, IWave secondaryWave, double currentWaveCount)
+        {
+            double minimumPosition = -0.5;
+            double maximumPosition = 1.5;
+            int totalCount = (int)((maximumPosition - minimumPosition) / precision);
+
+            double[] singleWaveModel = new double[totalCount *8];
+
+            int x, y;
+            int heightOffset;
+            for (double wavePosition = minimumPosition; wavePosition <= maximumPosition; wavePosition += precision)
+            {
+                x = (int)(wavePosition * (double)frameWidth);
+
+                heightOffset = (int)(primaryWave.GetYValueAt(wavePosition) * 50.0);
+                heightOffset += (int)(secondaryWave.GetYValueAt(currentWaveCount) * 50.0);
+
+                int key = x+ frameWidth/2;
+
+                singleWaveModel[key] = heightOffset;
+            }
+            return singleWaveModel;
+        }
+
+        private void DrawSingleWaveModel(Graphics graphics, double[] singleWaveModel, double currentWaveCount)
         {
             int x, y, previousX = -1, previousY = -1;
-            double waveHeight;
             int heightOffset;
             for (double wavePosition = -0.5; wavePosition <= 1.5; wavePosition += precision)
             {
-                waveHeight = primaryWave.GetYValueAt(wavePosition) + 1.0;
-
                 x = (int)(wavePosition * (double)frameWidth);
                 y = (int)(currentWaveCount * (double)(frameHeight));
 
-                if (isInverted)
-                    y -= frameHeight - (x / 2);
-                else
-                    y -= x / 2;
+                y -= x / 2;
 
-                if (isInverted)
-                {
-                    heightOffset = (int)(primaryWave.GetYValueAt(1.0 - wavePosition) * 50.0);
-                    heightOffset += (int)(secondaryWave.GetYValueAt(1.0 - currentWaveCount) * 50.0);
-                }
-                else
-                {
-                    heightOffset = (int)(primaryWave.GetYValueAt(wavePosition) * 50.0);
-                    heightOffset += (int)(secondaryWave.GetYValueAt(currentWaveCount) * 50.0);
-                }
+                int key = x + frameWidth / 2;
+                heightOffset = (int)singleWaveModel[key];
+
 
                 pen.Color = BuildPenColor(y);
 
-                if (isInverted)
-                    x -= y - (frameWidth / 2);
-                else
-                    x += y - (frameWidth / 2);
+                x += y - (frameWidth / 2);
 
                 y += heightOffset;
 
