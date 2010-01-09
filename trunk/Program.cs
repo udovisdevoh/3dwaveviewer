@@ -42,6 +42,8 @@ namespace _3dWaves
 
             waveViewer.BraneMatrixHue = BuildMatrix(random);
 
+            waveViewer.BraneMatrixSaturation = BuildMatrix(random);
+
             Application.Run(waveViewer);
         }
 

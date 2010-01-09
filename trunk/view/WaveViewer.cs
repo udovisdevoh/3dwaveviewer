@@ -16,6 +16,8 @@ namespace _3dWaves
 
         private BraneMatrix braneMatrixHue;
 
+        private BraneMatrix braneMatrixSaturation;
+
         private int frameWidth;
 
         private int frameHeight;
@@ -39,12 +41,12 @@ namespace _3dWaves
         protected override void OnPaint(PaintEventArgs paintEvent)
         {
             Graphics graphics = paintEvent.Graphics;
-            Draw(graphics, braneMatrixHeight, braneMatrixHue);
+            Draw(graphics, braneMatrixHeight, braneMatrixHue, braneMatrixSaturation);
         }
         #endregion
 
         #region Private Methods
-        private void Draw(Graphics graphics, BraneMatrix braneMatrixHeight, BraneMatrix braneMatrixHue)
+        private void Draw(Graphics graphics, BraneMatrix braneMatrixHeight, BraneMatrix braneMatrixHue, BraneMatrix braneMatrixSaturation)
         {
             double currentWaveCount = 0.0;
             double previousWaveCount = 0.0;
@@ -52,7 +54,7 @@ namespace _3dWaves
             int counter = 0;
             foreach (SingleWaveViewModel singleWaveModelHeight in braneMatrixHeight)
             {
-                DrawSingleWaveModel(graphics, singleWaveModelHeight, braneMatrixHue[counter], previousSingleWaveModel, currentWaveCount, previousWaveCount);
+                DrawSingleWaveModel(graphics, singleWaveModelHeight, braneMatrixHue[counter], braneMatrixSaturation[counter], previousSingleWaveModel, currentWaveCount, previousWaveCount);
                
                 previousSingleWaveModel = singleWaveModelHeight;
                 previousWaveCount = currentWaveCount;
@@ -62,21 +64,22 @@ namespace _3dWaves
             }
         }
 
-        private void DrawSingleWaveModel(Graphics graphics, SingleWaveViewModel singleWaveModelHeight, SingleWaveViewModel singleWaveModelHue, SingleWaveViewModel previousSingleWaveModel, double currentWaveCount, double previousWaveCount)
+        private void DrawSingleWaveModel(Graphics graphics, SingleWaveViewModel singleWaveModelHeight, SingleWaveViewModel singleWaveModelHue, SingleWaveViewModel singleWaveModelSaturation, SingleWaveViewModel previousSingleWaveModel, double currentWaveCount, double previousWaveCount)
         {
             int x, y, previousX = -1, previousY = -1;
             int previousWaveModelX = -1, previousWaveModelY = -1;
-            double hue;
+            double hue, saturation;
             for (double wavePosition = -0.5; wavePosition <= 1.5; wavePosition += precision)
             {
                 BuildDrawingPositions(singleWaveModelHeight, wavePosition, currentWaveCount, out x, out y);
 
                 hue = BuildHue(singleWaveModelHue, wavePosition, currentWaveCount);
+                saturation = BuildSaturation(singleWaveModelSaturation, wavePosition, currentWaveCount);
                 
                 if (previousSingleWaveModel != null)
                     BuildDrawingPositions(previousSingleWaveModel, wavePosition, previousWaveCount, out previousWaveModelX, out previousWaveModelY);
 
-                pen.Color = BuildPenColor(y, hue);
+                pen.Color = BuildPenColor(y, hue, saturation);
 
                 if (previousX != -1)
                     graphics.DrawLine(pen, previousX, previousY, x, y);
@@ -87,6 +90,31 @@ namespace _3dWaves
                 previousX = x;
                 previousY = y;
             }
+        }
+
+        private double BuildSaturation(SingleWaveViewModel singleWaveModelSaturation, double wavePosition, double currentWaveCount)
+        {
+            int x = (int)(wavePosition * (double)frameWidth);
+            int y = (int)(currentWaveCount * (double)(frameHeight));
+
+            y -= x / 2;
+
+            int key = x + frameWidth / 2;
+
+            double saturation = singleWaveModelSaturation[key];
+
+            saturation += 100;
+
+            saturation /= 200.0;
+
+            if (saturation < 0)
+                saturation = 0;
+            else if (saturation > 1)
+                saturation = 1;
+
+            //return 0.5;
+
+            return saturation;
         }
 
         private double BuildHue(SingleWaveViewModel singleWaveModelHue, double wavePosition, double currentWaveCount)
@@ -138,7 +166,7 @@ namespace _3dWaves
                 x = 0;
         }
 
-        private Color BuildPenColor(int height, double hue)
+        private Color BuildPenColor(int height, double hue, double saturation)
         {
             int lightness = (int)((double)(height) / frameHeight * 255);
             if (lightness < 0)
@@ -146,7 +174,7 @@ namespace _3dWaves
             else if (lightness > 255)
                 lightness = 255;
 
-            return ColorFromHSV(hue, 0.5, (double)lightness / 255.0);
+            return ColorFromHSV(hue, saturation, (double)lightness / 255.0);
         }
 
         public static Color ColorFromHSV(double hue, double saturation, double value)
@@ -187,6 +215,12 @@ namespace _3dWaves
         {
             get { return braneMatrixHue; }
             set { braneMatrixHue = value; }
+        }
+
+        public BraneMatrix BraneMatrixSaturation
+        {
+            get { return braneMatrixSaturation; }
+            set { braneMatrixSaturation = value; }
         }
 
         public int FrameWidth
