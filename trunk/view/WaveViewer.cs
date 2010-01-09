@@ -81,7 +81,7 @@ namespace _3dWaves
                 if (previousX != -1)
                     graphics.DrawLine(pen, previousX, previousY, x, y);
 
-                if (previousSingleWaveModel != null)
+                if (previousSingleWaveModel != null && previousWaveModelY <= y)
                     graphics.DrawLine(pen, previousWaveModelX, previousWaveModelY, x, y);
 
                 previousX = x;
@@ -100,12 +100,12 @@ namespace _3dWaves
 
             double hue = singleWaveModelHue[key];
 
-            hue *= 2;
+            hue *= 1.5;
 
             while (hue < 0.0)
-                hue += 255.0;
-            while (hue > 255.0)
-                hue -= 255.0;
+                hue += 360.0;
+            while (hue > 360.0)
+                hue -= 360.0;
 
             return hue;
         }

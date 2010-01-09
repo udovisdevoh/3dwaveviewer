@@ -38,24 +38,22 @@ namespace _3dWaves
         {
             Random random = new Random();
 
-            IWave waveHeight1 = waveBuilder.Build(random);
-            waveHeight1.Normalize();
-            
-            IWave waveHeight2 = waveBuilder.Build(random);
-            waveHeight2.Normalize();
+            waveViewer.BraneMatrixHeight = BuildMatrix(random);
 
-            waveViewer.BraneMatrixHeight = braneBuilder.Build(waveHeight1, waveHeight2, precision, frameWidth, frameHeight);
-
-            IWave waveHue1 = waveBuilder.Build(random);
-            waveHue1.Normalize();
-
-            IWave waveHue2 = waveBuilder.Build(random);
-            waveHue2.Normalize();
-
-            waveViewer.BraneMatrixHue = braneBuilder.Build(waveHue1, waveHue2, precision, frameWidth, frameHeight);
-            //waveViewer.BraneMatrixHue = waveViewer.BraneMatrixHeight;
+            waveViewer.BraneMatrixHue = BuildMatrix(random);
 
             Application.Run(waveViewer);
+        }
+
+        private BraneMatrix BuildMatrix(Random random)
+        {
+            IWave wave1 = waveBuilder.Build(random);
+            wave1.Normalize();
+
+            IWave wave2 = waveBuilder.Build(random);
+            wave2.Normalize();
+
+            return braneBuilder.Build(wave1, wave2, precision, frameWidth, frameHeight);
         }
         #endregion
 
