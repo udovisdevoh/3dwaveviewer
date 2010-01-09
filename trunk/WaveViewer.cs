@@ -42,7 +42,7 @@ namespace _3dWaves
             Graphics graphics = paintEvent.Graphics;
 
             DrawHalfBrane(graphics, wave1, wave2, false);
-            //DrawHalfBrane(graphics, wave2, wave1, true);
+            DrawHalfBrane(graphics, wave2, wave1, true);
 
             /*
             double wave1Height, wave2Height;
@@ -108,17 +108,20 @@ namespace _3dWaves
                 if (isInverted)
                 {
                     heightOffset = (int)(primaryWave.GetYValueAt(1.0 - wavePosition) * 50.0);
-                    heightOffset -= (int)(secondaryWave.GetYValueAt(1.0 - currentWaveCount) * 50.0);
+                    heightOffset += (int)(secondaryWave.GetYValueAt(1.0 - currentWaveCount) * 50.0);
                 }
                 else
                 {
                     heightOffset = (int)(primaryWave.GetYValueAt(wavePosition) * 50.0);
-                    heightOffset -= (int)(secondaryWave.GetYValueAt(currentWaveCount) * 50.0);
+                    heightOffset += (int)(secondaryWave.GetYValueAt(currentWaveCount) * 50.0);
                 }
 
                 pen.Color = BuildPenColor(y);
 
-                x += y - (frameWidth / 2);
+                if (isInverted)
+                    x -= y - (frameWidth / 2);
+                else
+                    x += y - (frameWidth / 2);
 
                 y += heightOffset;
 

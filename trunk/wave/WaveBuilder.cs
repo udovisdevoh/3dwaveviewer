@@ -30,5 +30,21 @@ namespace _3dWaves
             
             return wavePack;
         }
+
+        public IWave BuildSinePlusSquare()
+        {
+            WavePack wavePack = new WavePack();
+            wavePack.Add(new Wave(1.0,2,0,WaveFunctions.Sine));
+            wavePack.Add(new Wave(1.0, 4, 0.5, WaveFunctions.Square));
+            return wavePack;
+        }
+
+        public IWave BuildSawPlusSine()
+        {
+            WavePack wavePack = new WavePack();
+            wavePack.Add(new Wave(1.0, 2, 0, WaveFunctions.Saw));
+            wavePack.Add(new Wave(1.0, 4, 0.5, WaveFunctions.Sine));
+            return wavePack;
+        }
     }
 }
