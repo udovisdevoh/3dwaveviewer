@@ -9,7 +9,7 @@ namespace _3dWaves
     {
         public IWave Build(Random random)
         {
-            WavePack wavePack = new WavePack();
+            WavePack wavePack = new WavePack(WavePack.GetRandomJunctionType(random));
 
             int waveCount = random.Next(1, random.Next(1, 4) * random.Next(1, 4));
 

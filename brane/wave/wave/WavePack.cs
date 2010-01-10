@@ -7,15 +7,28 @@ namespace _3dWaves
 {
     class WavePack : IWave, IList<IWave>
     {
+        #region Const
+        public const int JunctionAdd = 0;
+
+        public const int JunctionMultiply = 1;
+        #endregion
+
         #region Fields
         private List<IWave> waveList = new List<IWave>();
 
         private double normalizationMultiplicator = 1.0;
 
         private WaveCache waveCache = new WaveCache();
+
+        private int junctionType = JunctionAdd;
         #endregion
 
         #region Constructor
+        public WavePack(int junctionType)
+        {
+            this.junctionType = junctionType;
+        }
+
         public WavePack()
         {
         }
@@ -165,6 +178,11 @@ namespace _3dWaves
         {
             double value = 0.0;
 
+            if (junctionType == JunctionMultiply)
+                value = 1.0;
+            else if (junctionType == JunctionAdd)
+                value = 0.0;
+
             if (waveCache.ContainsKey(x))
             {
                 value = waveCache.Get(x);
@@ -172,7 +190,12 @@ namespace _3dWaves
             else
             {
                 foreach (IWave iWave in waveList)
-                    value += iWave.GetYValueAt(x);
+                {
+                    if (junctionType == JunctionMultiply)
+                        value *= iWave.GetYValueAt(x);
+                    else if (junctionType == JunctionAdd)
+                        value += iWave.GetYValueAt(x);
+                }
 
                 waveCache.Add(x, value);
             }
@@ -205,6 +228,13 @@ namespace _3dWaves
             maxY = Math.Max(maxY, minY * -1.0);
 
             normalizationMultiplicator = 1.0 / maxY;
+        }
+        #endregion
+    
+        #region Static Methods
+        public static int GetRandomJunctionType(Random random)
+        {
+            return random.Next(0, 2);
         }
         #endregion
     }
