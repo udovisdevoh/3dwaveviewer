@@ -51,6 +51,7 @@
     <Compile Include="brane\BraneBuilder.cs" />
     <Compile Include="brane\BraneMatrix.cs" />
     <Compile Include="brane\SingleWaveViewModel.cs" />
+    <Compile Include="brane\wave\WaveCache.cs" />
     <Compile Include="view\WaveViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,7 +82,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="brane\wave\WaveBuilder.cs" />
-    <Compile Include="brane\wave\WaveCache.cs" />
     <Compile Include="brane\wave\WaveFunctions.cs" />
     <Compile Include="brane\wave\wave\IWave.cs" />
     <Compile Include="brane\wave\wave\Wave.cs" />
