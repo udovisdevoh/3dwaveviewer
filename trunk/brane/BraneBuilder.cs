@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Waves;
 
 namespace _3dWaves
 {
@@ -50,8 +51,8 @@ namespace _3dWaves
             {
                 x = (int)(wavePosition * (double)frameWidth);
 
-                heightOffset = (int)(primaryWave.GetYValueAt(wavePosition) * 50.0);
-                heightOffset += (int)(secondaryWave.GetYValueAt(currentWaveCount) * 50.0);
+                heightOffset = (int)(primaryWave[wavePosition] * 50.0);
+                heightOffset += (int)(secondaryWave[currentWaveCount] * 50.0);
 
                 int key = x + frameWidth / 2;
 
