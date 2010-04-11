@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="artificialart, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\artificialart.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -51,7 +55,6 @@
     <Compile Include="brane\BraneBuilder.cs" />
     <Compile Include="brane\BraneMatrix.cs" />
     <Compile Include="brane\SingleWaveViewModel.cs" />
-    <Compile Include="brane\wave\WaveCache.cs" />
     <Compile Include="view\WaveViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,10 +85,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="brane\wave\WaveBuilder.cs" />
-    <Compile Include="brane\wave\WaveFunctions.cs" />
-    <Compile Include="brane\wave\wave\IWave.cs" />
-    <Compile Include="brane\wave\wave\Wave.cs" />
-    <Compile Include="brane\wave\wave\WavePack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
