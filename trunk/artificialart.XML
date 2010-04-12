@@ -4,42 +4,42 @@
         <name>artificialart</name>
     </assembly>
     <members>
-        <member name="T:Linguistics.WordListFromFile">
+        <member name="T:ArtificialArt.Linguistics.WordListFromFile">
             <summary>
             Word list from file
             </summary>
         </member>
-        <member name="F:Linguistics.WordList.internalHash">
+        <member name="F:ArtificialArt.Linguistics.WordList.internalHash">
             <summary>
             Will contain the words
             </summary>
         </member>
-        <member name="M:Linguistics.WordList.ContainsAsNegativeOrPositiveForm(System.String)">
+        <member name="M:ArtificialArt.Linguistics.WordList.ContainsAsNegativeOrPositiveForm(System.String)">
             <summary>
             Whether word is in word list as negative or positive form
             </summary>
             <param name="word">word</param>
             <returns>Whether word is in word list as negative or positive form</returns>
         </member>
-        <member name="M:Linguistics.WordList.ContainsExact(System.String)">
+        <member name="M:ArtificialArt.Linguistics.WordList.ContainsExact(System.String)">
             <summary>
             Whether word is in word list as exact form
             </summary>
             <param name="word">word</param>
             <returns>Whether word is in word list as exact form</returns>
         </member>
-        <member name="M:Linguistics.WordListFromFile.#ctor(System.String)">
+        <member name="M:ArtificialArt.Linguistics.WordListFromFile.#ctor(System.String)">
             <summary>
             Create word list from text file
             </summary>
             <param name="fileName">file name</param>
         </member>
-        <member name="T:Linguistics.KeepCaseReplacer">
+        <member name="T:ArtificialArt.Linguistics.KeepCaseReplacer">
             <summary>
             Replace words in string while keeping original case structure
             </summary>
         </member>
-        <member name="M:Linguistics.KeepCaseReplacer.ReplaceWord(System.String,System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.KeepCaseReplacer.ReplaceWord(System.String,System.String,System.String)">
             <summary>
             replace words in string while keeping original case structure
             </summary>
@@ -48,7 +48,7 @@
             <param name="to">replace to</param>
             <returns>String with replaced words with case structure kept</returns>
         </member>
-        <member name="M:Linguistics.KeepCaseReplacer.ApplyWordCaseStructureToText(System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.KeepCaseReplacer.ApplyWordCaseStructureToText(System.String,System.String)">
             <summary>
             Take a string and apply word case structure from another
             </summary>
@@ -56,7 +56,7 @@
             <param name="sourceText">string to take case from</param>
             <returns>new string with modified case</returns>
         </member>
-        <member name="M:Linguistics.KeepCaseReplacer.ApplyWordCaseStructureToWord(System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.KeepCaseReplacer.ApplyWordCaseStructureToWord(System.String,System.String)">
             <summary>
             Take a word and apply case structure of another word
             </summary>
@@ -64,38 +64,43 @@
             <param name="sourceWord">word to take case structure</param>
             <returns>modified word with the other word's case structure</returns>
         </member>
-        <member name="T:Waves.WaveCache">
+        <member name="T:ArtificialArt.Waves.WaveCache">
             <summary>
             To improve wave rendering performances
             </summary>
         </member>
-        <member name="F:Waves.WaveCache.internalCache">
+        <member name="F:ArtificialArt.Waves.WaveCache.internalCache">
             <summary>
             Internal cache
             </summary>
         </member>
-        <member name="M:Waves.WaveCache.ContainsKey(System.Double)">
+        <member name="M:ArtificialArt.Waves.WaveCache.ContainsKey(System.Double)">
             <summary>
             Whether cache contains value at x
             </summary>
             <param name="x">x</param>
             <returns>Whether cache contains value at x</returns>
         </member>
-        <member name="M:Waves.WaveCache.Add(System.Double,System.Double)">
+        <member name="M:ArtificialArt.Waves.WaveCache.Add(System.Double,System.Double)">
             <summary>
             Add key value pair to cache
             </summary>
             <param name="x">position/time index</param>
             <param name="value">value</param>
         </member>
-        <member name="M:Waves.WaveCache.Get(System.Double)">
+        <member name="M:ArtificialArt.Waves.WaveCache.Get(System.Double)">
             <summary>
             Get value at position/time x
             </summary>
             <param name="x">position/time</param>
             <returns>value at position/time x</returns>
         </member>
-        <member name="M:Markov.Probabilities.GetPonderatedRandom(System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+        <member name="T:ArtificialArt.Markov.Probabilities">
+            <summary>
+            For probability mathematics
+            </summary>
+        </member>
+        <member name="M:ArtificialArt.Markov.Probabilities.GetPonderatedRandom(System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
             <summary>
             Get random key from row according to probabilities in value
             </summary>
@@ -103,7 +108,7 @@
             <param name="row">row</param>
             <returns>random key from row according to probabilities in value</returns>
         </member>
-        <member name="M:Markov.Probabilities.GetPonderatedRandom(System.Collections.Generic.Dictionary{System.Char,System.Int32},System.Random)">
+        <member name="M:ArtificialArt.Markov.Probabilities.GetPonderatedRandom(System.Collections.Generic.Dictionary{System.Char,System.Int32},System.Random)">
             <summary>
             Get random key from row according to probabilities in value
             </summary>
@@ -111,126 +116,39 @@
             <param name="row">row</param>
             <returns>random key from row according to probabilities in value</returns>
         </member>
-        <member name="T:Linguistics.English.VerbManager">
-            <summary>
-            Manages analysis of verbs
-            </summary>
-        </member>
-        <member name="F:Linguistics.English.VerbManager.modalVerbList">
-            <summary>
-            List of modal verb
-            </summary>
-        </member>
-        <member name="F:Linguistics.English.VerbManager.irregularVerbList">
-            <summary>
-            List of irregular verb
-            </summary>
-        </member>
-        <member name="F:Linguistics.English.VerbManager.regularVerbList">
-            <summary>
-            List of regular verb
-            </summary>
-        </member>
-        <member name="F:Linguistics.English.VerbManager.undefinedVerbList">
-            <summary>
-            List of undefined verb
-            </summary>
-        </member>
-        <member name="M:Linguistics.English.VerbManager.#ctor">
-            <summary>
-            Create verb manager
-            </summary>
-        </member>
-        <member name="M:Linguistics.English.VerbManager.IsVerb(System.String)">
-            <summary>
-            Whether the word is a verb
-            </summary>
-            <param name="word">word</param>
-            <returns>Whether the word is a verb</returns>
-        </member>
-        <member name="M:Linguistics.English.VerbManager.IsModalVerb(System.String)">
-            <summary>
-            Whether the word is in modal verb list
-            </summary>
-            <param name="word">word</param>
-            <returns>Whether the word is in modal verb list</returns>
-        </member>
-        <member name="M:Linguistics.English.VerbManager.IsIrregularVerb(System.String)">
-            <summary>
-            Whether the word is in irregular verb list
-            </summary>
-            <param name="word">word</param>
-            <returns>Whether the word is in irregular verb list</returns>
-        </member>
-        <member name="M:Linguistics.English.VerbManager.IsRegularVerb(System.String)">
-            <summary>
-            Whether the word is in regular verb list
-            </summary>
-            <param name="word">word</param>
-            <returns>Whether the word is in regular verb list</returns>
-        </member>
-        <member name="M:Linguistics.English.VerbManager.IsUndefinedVerb(System.String)">
-            <summary>
-            Whether the word is in undefined verb list
-            </summary>
-            <param name="word">word</param>
-            <returns>Whether the word is in undefined verb list</returns>
-        </member>
-        <member name="T:Linguistics.English.SubjectObjectDetector">
-            <summary>
-            Manages the difference between subjects and objects
-            </summary>
-        </member>
-        <member name="F:Linguistics.English.SubjectObjectDetector.isSubject">
-            <summary>
-            When it is a subject
-            </summary>
-        </member>
-        <member name="F:Linguistics.English.SubjectObjectDetector.isObject">
-            <summary>
-            When it is an object
-            </summary>
-        </member>
-        <member name="M:Linguistics.English.SubjectObjectDetector.IsSubjectNotObject(Linguistics.Word)">
-            <summary>
-            Whether word is a subject and not an object according to provided context
-            </summary>
-            <param name="word">word</param>
-            <returns>Whether word is a subject and not an object according to provided context</returns>
-        </member>
-        <member name="T:WebServices.WebBot">
+        <member name="T:ArtificialArt.WebServices.WebBot">
             <summary>
             Used to get websites HTML content
             </summary>
         </member>
-        <member name="F:WebServices.WebBot.userAgent">
+        <member name="F:ArtificialArt.WebServices.WebBot.userAgent">
             <summary>
             Default user agent
             </summary>
         </member>
-        <member name="F:WebServices.WebBot.webClient">
+        <member name="F:ArtificialArt.WebServices.WebBot.webClient">
             <summary>
             Web client
             </summary>
         </member>
-        <member name="M:WebServices.WebBot.#ctor">
+        <member name="M:ArtificialArt.WebServices.WebBot.#ctor">
             <summary>
             Create a web bot
             </summary>
         </member>
-        <member name="M:WebServices.WebBot.GetPageContent(System.String)">
+        <member name="M:ArtificialArt.WebServices.WebBot.GetPageContent(System.String)">
             <summary>
             Get page content from URL
             </summary>
             <param name="url">url</param>
             <returns>page content from URL</returns>
         </member>
-        <member name="T:WebServices.AbstractSearchChatBot">
+        <member name="T:ArtificialArt.WebServices.AbstractSearchChatBot">
             <summary>
             Google, bing, yahoo search bots
             </summary>
         </member>
-        <member name="M:WebServices.AbstractSearchChatBot.TryExpandString(System.String,System.Random)">
+        <member name="M:ArtificialArt.WebServices.AbstractSearchChatBot.TryExpandString(System.String,System.Random)">
             <summary>
             Try expand string using search bot (add prefex and suffix to search criteria)
             If fails, return original string
@@ -239,47 +157,47 @@
             <param name="random">random number generator</param>
             <returns>Expanded string using search bot (add prefex and suffix to search criteria)</returns>
         </member>
-        <member name="M:WebServices.AbstractSearchChatBot.Search(System.String)">
+        <member name="M:ArtificialArt.WebServices.AbstractSearchChatBot.Search(System.String)">
             <summary>
             Start a new search
             </summary>
             <param name="searchCriteria">search criteria</param>
         </member>
-        <member name="M:WebServices.AbstractSearchChatBot.GetEnumerator">
+        <member name="M:ArtificialArt.WebServices.AbstractSearchChatBot.GetEnumerator">
             <summary>
             Search results
             </summary>
             <returns>Search results</returns>
         </member>
-        <member name="M:WebServices.AbstractSearchChatBot.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:ArtificialArt.WebServices.AbstractSearchChatBot.System#Collections#IEnumerable#GetEnumerator">
             <summary>
             Search results
             </summary>
             <returns>Search results</returns>
         </member>
-        <member name="P:WebServices.AbstractSearchChatBot.Count">
+        <member name="P:ArtificialArt.WebServices.AbstractSearchChatBot.Count">
             <summary>
             Count search results
             </summary>
         </member>
-        <member name="T:Markov.Matrix">
+        <member name="T:ArtificialArt.Markov.Matrix">
             <summary>
             Represents a matrix
             key: strings
             value: float
             </summary>
         </member>
-        <member name="F:Markov.Matrix.normalData">
+        <member name="F:ArtificialArt.Markov.Matrix.normalData">
             <summary>
             Normal matrix representation
             </summary>
         </member>
-        <member name="F:Markov.Matrix.reversedData">
+        <member name="F:ArtificialArt.Markov.Matrix.reversedData">
             <summary>
             90 degree rotated matrix representation
             </summary>
         </member>
-        <member name="M:Markov.Matrix.MultiplyStatistics(System.String,System.String,System.Single)">
+        <member name="M:ArtificialArt.Markov.Matrix.MultiplyStatistics(System.String,System.String,System.Single)">
             <summary>
             Multiply statistics
             </summary>
@@ -287,14 +205,14 @@
             <param name="toValue">to value</param>
             <param name="toMultiply">multiplicator</param>
         </member>
-        <member name="M:Markov.Matrix.AddStatistics(System.String,System.String)">
+        <member name="M:ArtificialArt.Markov.Matrix.AddStatistics(System.String,System.String)">
             <summary>
             Add 1 to existing statistics count
             </summary>
             <param name="fromValue">from value</param>
             <param name="toValue">to value</param>
         </member>
-        <member name="M:Markov.Matrix.AddStatistics(System.String,System.String,System.Single)">
+        <member name="M:ArtificialArt.Markov.Matrix.AddStatistics(System.String,System.String,System.Single)">
             <summary>
             Add a number to existing statistics count
             </summary>
@@ -302,7 +220,7 @@
             <param name="toValue">to value</param>
             <param name="toAdd">add to existing count</param>
         </member>
-        <member name="M:Markov.Matrix.SetStatistics(System.String,System.String,System.Single)">
+        <member name="M:ArtificialArt.Markov.Matrix.SetStatistics(System.String,System.String,System.Single)">
             <summary>
             Set statistics count number for values
             </summary>
@@ -310,14 +228,14 @@
             <param name="toValue">to value</param>
             <param name="newCount">new count</param>
         </member>
-        <member name="M:Markov.Matrix.ContainsKey(System.String)">
+        <member name="M:ArtificialArt.Markov.Matrix.ContainsKey(System.String)">
             <summary>
             Whether a key name is present in the matrix
             </summary>
             <param name="keyName">key name</param>
             <returns>whether a key name is present in the matrix</returns>
         </member>
-        <member name="M:Markov.Matrix.MultiplyStatisticsTo(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Single}},System.String,System.String,System.Single)">
+        <member name="M:ArtificialArt.Markov.Matrix.MultiplyStatisticsTo(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Single}},System.String,System.String,System.Single)">
             <summary>
             Multiply statistics
             </summary>
@@ -326,7 +244,7 @@
             <param name="toValue">to value</param>
             <param name="toMultiply">multiplicator</param>
         </member>
-        <member name="M:Markov.Matrix.AddStatisticsTo(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Single}},System.String,System.String,System.Single)">
+        <member name="M:ArtificialArt.Markov.Matrix.AddStatisticsTo(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Single}},System.String,System.String,System.Single)">
             <summary>
             Add statistics
             </summary>
@@ -335,7 +253,7 @@
             <param name="toValue">to value</param>
             <param name="toAdd">number to add</param>
         </member>
-        <member name="M:Markov.Matrix.SetStatisticsTo(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Single}},System.String,System.String,System.Single)">
+        <member name="M:ArtificialArt.Markov.Matrix.SetStatisticsTo(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Single}},System.String,System.String,System.Single)">
             <summary>
             Set statistics
             </summary>
@@ -344,7 +262,7 @@
             <param name="toValue">to value</param>
             <param name="newCount">new number to set</param>
         </member>
-        <member name="P:Markov.Matrix.Item(System.String,System.String)">
+        <member name="P:ArtificialArt.Markov.Matrix.Item(System.String,System.String)">
             <summary>
             Try get normal value
             </summary>
@@ -352,63 +270,63 @@
             <param name="concept2">other concept name</param>
             <returns>current value</returns>
         </member>
-        <member name="P:Markov.Matrix.NormalData">
+        <member name="P:ArtificialArt.Markov.Matrix.NormalData">
             <summary>
             Normal matrix representation
             </summary>
         </member>
-        <member name="P:Markov.Matrix.ReversedData">
+        <member name="P:ArtificialArt.Markov.Matrix.ReversedData">
             <summary>
             90 degree rotated matrix representation
             </summary>
         </member>
-        <member name="T:Linguistics.WordStream">
+        <member name="T:ArtificialArt.Linguistics.WordStream">
             <summary>
             Represents a stream of words that can be extracted and manipulated form a string
             </summary>
         </member>
-        <member name="T:Linguistics.WordStringStream">
+        <member name="T:ArtificialArt.Linguistics.WordStringStream">
             <summary>
             Represents a stream of words (as strings) that can be extracted form a string
             </summary>
         </member>
-        <member name="F:Linguistics.WordStringStream.pointer">
+        <member name="F:ArtificialArt.Linguistics.WordStringStream.pointer">
             <summary>
             Current pointer in word list
             </summary>
         </member>
-        <member name="F:Linguistics.WordStringStream.wordListAsString">
+        <member name="F:ArtificialArt.Linguistics.WordStringStream.wordListAsString">
             <summary>
             List of words
             </summary>
         </member>
-        <member name="F:Linguistics.WordStringStream.wordListAsStringLowerCase">
+        <member name="F:ArtificialArt.Linguistics.WordStringStream.wordListAsStringLowerCase">
             <summary>
             List of words in lowercase
             </summary>
         </member>
-        <member name="F:Linguistics.WordStringStream.firstDelimiter">
+        <member name="F:ArtificialArt.Linguistics.WordStringStream.firstDelimiter">
             <summary>
             First delimiter before first word
             </summary>
         </member>
-        <member name="F:Linguistics.WordStringStream.delimiterList">
+        <member name="F:ArtificialArt.Linguistics.WordStringStream.delimiterList">
             <summary>
             List of other delimiters
             </summary>
         </member>
-        <member name="F:Linguistics.WordStringStream.listSentenceBegin">
+        <member name="F:ArtificialArt.Linguistics.WordStringStream.listSentenceBegin">
             <summary>
             List of word indexes that correspound to begining of sentences
             </summary>
         </member>
-        <member name="M:Linguistics.WordStringStream.#ctor(System.String)">
+        <member name="M:ArtificialArt.Linguistics.WordStringStream.#ctor(System.String)">
             <summary>
             Create a word stream from a source text
             </summary>
             <param name="sourceText">source text</param>
         </member>
-        <member name="M:Linguistics.WordStringStream.TryGetNextWord(System.String@,System.String@)">
+        <member name="M:ArtificialArt.Linguistics.WordStringStream.TryGetNextWord(System.String@,System.String@)">
             <summary>
             Try get next word and delimiter from word stream
             </summary>
@@ -416,7 +334,7 @@
             <param name="nextDelimiter">next word delimiter (can be null if it's the last word)</param>
             <returns>whether there are still words to get</returns>
         </member>
-        <member name="M:Linguistics.WordStringStream.TryGetNextWord(System.String@,System.String@,System.Boolean@)">
+        <member name="M:ArtificialArt.Linguistics.WordStringStream.TryGetNextWord(System.String@,System.String@,System.Boolean@)">
             <summary>
             Try get next word and delimiter from word stream
             </summary>
@@ -425,123 +343,167 @@
             <param name="isSentenceBegin">whether current word is the begining of a sentence</param>
             <returns>whether there are still words to get</returns>
         </member>
-        <member name="M:Linguistics.WordStringStream.PeekNextWord">
+        <member name="M:ArtificialArt.Linguistics.WordStringStream.PeekNextWord">
             <summary>
             Try to get next word without advancing pointer
             Null if no word left
             </summary>
             <returns>next word or null if none available</returns>
         </member>
-        <member name="M:Linguistics.WordStringStream.PeekNextDelimiter">
+        <member name="M:ArtificialArt.Linguistics.WordStringStream.PeekNextDelimiter">
             <summary>
             Try to get next delimiter without advancing pointer
             Null if no delimiter left
             </summary>
             <returns>next delimiter or null if none available</returns>
         </member>
-        <member name="M:Linguistics.WordStringStream.Reset">
+        <member name="M:ArtificialArt.Linguistics.WordStringStream.Reset">
             <summary>
             Reset the word pointer
             </summary>
         </member>
-        <member name="M:Linguistics.WordStringStream.ContainsWord(System.String)">
+        <member name="M:ArtificialArt.Linguistics.WordStringStream.ContainsWord(System.String)">
             <summary>
             Whether word stream contains specified word
             </summary>
             <param name="word">specified word</param>
             <returns>Whether word stream contains specified word</returns>
         </member>
-        <member name="M:Linguistics.WordStringStream.CountWords">
+        <member name="M:ArtificialArt.Linguistics.WordStringStream.CountWords">
             <summary>
             Word count
             </summary>
             <returns>word count</returns>
         </member>
-        <member name="P:Linguistics.WordStringStream.FirstDelimiter">
+        <member name="M:ArtificialArt.Linguistics.WordStringStream.GetEnumerator">
+            <summary>
+            To iterate in word string stream
+            </summary>
+            <returns>word string stream iterator</returns>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.WordStringStream.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            To iterate in word string stream
+            </summary>
+            <returns>word string stream iterator</returns>
+        </member>
+        <member name="P:ArtificialArt.Linguistics.WordStringStream.FirstDelimiter">
             <summary>
             First delimiter before first word
             </summary>
         </member>
-        <member name="F:Linguistics.WordStream.wordList">
+        <member name="P:ArtificialArt.Linguistics.WordStringStream.Item(System.Int32)">
+            <summary>
+            Get word as string at specified index
+            </summary>
+            <param name="index">specified index</param>
+            <returns>word as string at specified index</returns>
+        </member>
+        <member name="F:ArtificialArt.Linguistics.WordStream.wordList">
             <summary>
             List of words
             </summary>
         </member>
-        <member name="M:Linguistics.WordStream.#ctor(System.String)">
+        <member name="M:ArtificialArt.Linguistics.WordStream.#ctor(System.String)">
             <summary>
             Create a word stream
             </summary>
             <param name="originalText">original text</param>
         </member>
-        <member name="M:Linguistics.WordStream.TryGetNextWord(Linguistics.Word@)">
+        <member name="M:ArtificialArt.Linguistics.WordStream.TryGetNextWord(ArtificialArt.Linguistics.Word@)">
             <summary>
             Try to get next word and advance pointer
             </summary>
             <param name="word">next word (can be null if none available</param>
             <returns>Whether could get next word or not</returns>
         </member>
-        <member name="M:Linguistics.WordStream.ToString">
+        <member name="M:ArtificialArt.Linguistics.WordStream.ToString">
             <summary>
             Convert word stream to string
             </summary>
             <returns>converted to string</returns>
         </member>
-        <member name="T:Linguistics.English.QuestionManagerStartingWithQuestionWordPlusSpecialVerb">
+        <member name="M:ArtificialArt.Linguistics.WordStream.GetEnumerator">
+            <summary>
+            To iterate in word stream, returns a word iterator
+            </summary>
+            <returns>To iterate in word stream, returns a word iterator</returns>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.WordStream.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            To iterate in word stream, returns a word iterator
+            </summary>
+            <returns>To iterate in word stream, returns a word iterator</returns>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.WordStream.Last">
+            <summary>
+            Last word
+            </summary>
+            <returns>Last word</returns>
+        </member>
+        <member name="P:ArtificialArt.Linguistics.WordStream.Item(System.Int32)">
+            <summary>
+            Word at specified index
+            </summary>
+            <param name="index">specified index</param>
+            <returns>Word at specified index</returns>
+        </member>
+        <member name="T:ArtificialArt.Linguistics.English.QuestionManagerStartingWithQuestionWordPlusSpecialVerb">
             <summary>
             Manages questions that are questions because they begin with question word plus special verb
             </summary>
         </member>
-        <member name="F:Linguistics.English.QuestionManagerStartingWithQuestionWordPlusSpecialVerb.specialVerbList">
+        <member name="F:ArtificialArt.Linguistics.English.QuestionManagerStartingWithQuestionWordPlusSpecialVerb.specialVerbList">
             <summary>
             Special verb list
             </summary>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerStartingWithQuestionWordPlusSpecialVerb.IsQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerStartingWithQuestionWordPlusSpecialVerb.IsQuestion(System.String)">
             <summary>
             Whether question is question because it starts with a question word followed by a verb
             </summary>
             <param name="originalProposition"></param>
             <returns></returns>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerStartingWithQuestionWordPlusSpecialVerb.RemoveQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerStartingWithQuestionWordPlusSpecialVerb.RemoveQuestion(System.String)">
             <summary>
             Remove the two first words
             </summary>
             <param name="proposition"></param>
             <returns></returns>
         </member>
-        <member name="T:Linguistics.English.AintManager">
+        <member name="T:ArtificialArt.Linguistics.English.AintManager">
             <summary>
             Manages operations on the word "ain't"
             </summary>
         </member>
-        <member name="M:Linguistics.English.AintManager.RemoveAintOnce(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.AintManager.RemoveAintOnce(System.String)">
             <summary>
             Remove word "aint" from text
             </summary>
             <param name="text">text</param>
             <returns>Text with word "aint" removed once</returns>
         </member>
-        <member name="T:Waves.WaveFunction">
+        <member name="T:ArtificialArt.Waves.WaveFunction">
             <summary>
             Wave's function delegate type
             </summary>
             <param name="x">x</param>
             <returns>y</returns>
         </member>
-        <member name="T:Waves.WaveFunctions">
+        <member name="T:ArtificialArt.Waves.WaveFunctions">
             <summary>
             Represents wave functions like sine, square, saw, triangle etc
             </summary>
         </member>
-        <member name="M:Waves.WaveFunctions.GetRandomWaveFunction(System.Random)">
+        <member name="M:ArtificialArt.Waves.WaveFunctions.GetRandomWaveFunction(System.Random)">
             <summary>
             Random wave functions
             </summary>
             <param name="random">random number generator</param>
             <returns>Random wave functions</returns>
         </member>
-        <member name="M:Waves.WaveFunctions.GetRandomWaveFunction(System.Random,System.Boolean)">
+        <member name="M:ArtificialArt.Waves.WaveFunctions.GetRandomWaveFunction(System.Random,System.Boolean)">
             <summary>
             Return random wave function
             </summary>
@@ -549,19 +511,39 @@
             <param name="isOnlyContinuous">whether we only want continuous waves (default: false)</param>
             <returns>random wave function</returns>
         </member>
-        <member name="T:Linguistics.English.QuestionManagerByModalVerb">
+        <member name="P:ArtificialArt.Waves.WaveFunctions.Sine">
+            <summary>
+            Sine wave function
+            </summary>
+        </member>
+        <member name="P:ArtificialArt.Waves.WaveFunctions.Square">
+            <summary>
+            Square wave function
+            </summary>
+        </member>
+        <member name="P:ArtificialArt.Waves.WaveFunctions.Saw">
+            <summary>
+            Positive Saw wave function
+            </summary>
+        </member>
+        <member name="P:ArtificialArt.Waves.WaveFunctions.NegativeSaw">
+            <summary>
+            Negative Saw wave function
+            </summary>
+        </member>
+        <member name="T:ArtificialArt.Linguistics.English.QuestionManagerByModalVerb">
             <summary>
             Manages questions that are questions because they begin with modal verbs
             </summary>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerByModalVerb.IsQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerByModalVerb.IsQuestion(System.String)">
             <summary>
             Whether question was detected becayse proposition begins with modal verb
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Whether question was detected becayse proposition begins with modal verb</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerByModalVerb.RemoveQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerByModalVerb.RemoveQuestion(System.String)">
             <summary>
             Remove question from proposition
             </summary>
@@ -981,23 +963,22 @@
             would.
              </summary>
         </member>
-        <member name="T:Linguistics.WordSequenceReplacer">
+        <member name="T:ArtificialArt.Linguistics.WordSequenceReplacer">
             <summary>
             Manages replace of word sequences
             </summary>
         </member>
-        <member name="F:Linguistics.WordSequenceReplacer.joinedDelimiterList">
+        <member name="F:ArtificialArt.Linguistics.WordSequenceReplacer.joinedDelimiterList">
             <summary>
             Jointed delimiter list
             </summary>
         </member>
-        <member name="M:Linguistics.WordSequenceReplacer.#ctor">
+        <member name="M:ArtificialArt.Linguistics.WordSequenceReplacer.#ctor">
             <summary>
             Constructor
             </summary>
-            <param name="wordDelimiterList">List of possible word delimiters</param>
         </member>
-        <member name="M:Linguistics.WordSequenceReplacer.ReplaceWordSequence(System.String,System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.WordSequenceReplacer.ReplaceWordSequence(System.String,System.String,System.String)">
             <summary>
             Replace a word sequence in proposition
             </summary>
@@ -1006,7 +987,7 @@
             <param name="toSequence">from word sequence (case insensitive, delimiter insensitive)</param>
             <returns>proposition with replaced word sequences</returns>
         </member>
-        <member name="M:Linguistics.WordSequenceReplacer.ReplaceWordSequence(System.String,System.String,System.Int32,System.String,System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.WordSequenceReplacer.ReplaceWordSequence(System.String,System.String,System.Int32,System.String,System.String,System.String)">
             <summary>
             Replace word sequence
             </summary>
@@ -1018,36 +999,36 @@
             <param name="endReplace">ending of replaced word sequence</param>
             <returns>Text with replaced word sequences</returns>
         </member>
-        <member name="M:Linguistics.WordSequenceReplacer.BuildWordSequencePattern(Linguistics.WordStream)">
+        <member name="M:ArtificialArt.Linguistics.WordSequenceReplacer.BuildWordSequencePattern(ArtificialArt.Linguistics.WordStream)">
             <summary>
             Regex pattern matching word sequence with any kind of delimiter
             </summary>
             <param name="wordStream">wordStream</param>
             <returns>Regex pattern matching word sequence with any kind of delimiter</returns>
         </member>
-        <member name="T:Linguistics.English.NtManager">
+        <member name="T:ArtificialArt.Linguistics.English.NtManager">
             <summary>
             Manages words like "don't" and "didn't" and "doesn't"
             </summary>
         </member>
-        <member name="F:Linguistics.English.NtManager.ntAbleWordList">
+        <member name="F:ArtificialArt.Linguistics.English.NtManager.ntAbleWordList">
             <summary>
             List of words for which we can add "n't"
             </summary>
         </member>
-        <member name="M:Linguistics.English.NtManager.#ctor">
+        <member name="M:ArtificialArt.Linguistics.English.NtManager.#ctor">
             <summary>
             Create an n't manager
             </summary>
         </member>
-        <member name="M:Linguistics.English.NtManager.RemoveNt(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.NtManager.RemoveNt(System.String)">
             <summary>
             Remove words like "don't" and "didn't" and "doesn't"
             </summary>
             <param name="originalText">original text</param>
             <returns>original text with removed occurence of don't, didn't or doesn't</returns>
         </member>
-        <member name="M:Linguistics.English.NtManager.RemoveNt(System.String,System.Int32)">
+        <member name="M:ArtificialArt.Linguistics.English.NtManager.RemoveNt(System.String,System.Int32)">
             <summary>
             Remove n't from words like "don't" and "didn't" and "doesn't"
             </summary>
@@ -1055,14 +1036,14 @@
             <param name="desiredRemoveCount">how many times we remove it (default: 0 as infinite)</param>
             <returns>original text with removed occurence of don't, didn't or doesn't</returns>
         </member>
-        <member name="M:Linguistics.English.NtManager.ContainsNtAbleWord(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.NtManager.ContainsNtAbleWord(System.String)">
             <summary>
             Whether string contains words for which "n't" can be added
             </summary>
             <param name="text">string to analyze</param>
             <returns>Whether string contains words for which "n't" can be added</returns>
         </member>
-        <member name="M:Linguistics.English.NtManager.AddNt(System.String,System.Int32)">
+        <member name="M:ArtificialArt.Linguistics.English.NtManager.AddNt(System.String,System.Int32)">
             <summary>
             Add "n't" to word from original text
             </summary>
@@ -1070,84 +1051,84 @@
             <param name="desiredChangeCount">how many times to do it (0: infinite)</param>
             <returns></returns>
         </member>
-        <member name="M:Linguistics.English.NtManager.AddDontBeforeFirstVerb(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.NtManager.AddDontBeforeFirstVerb(System.String)">
             <summary>
             Add don't before first verb
             </summary>
             <param name="text">text to modify</param>
             <returns>modified text</returns>
         </member>
-        <member name="T:Waves.WavePack">
+        <member name="T:ArtificialArt.Waves.WavePack">
             <summary>
             Represents a wave pack
             </summary>
         </member>
-        <member name="T:Waves.IWave">
+        <member name="T:ArtificialArt.Waves.IWave">
             <summary>
             Represents a wave or a wave pack
             </summary>
         </member>
-        <member name="M:Waves.IWave.Normalize">
+        <member name="M:ArtificialArt.Waves.IWave.Normalize">
             <summary>
             Normalize the wave
             </summary>
             <returns>Normalized wave</returns>
         </member>
-        <member name="P:Waves.IWave.Item(System.Double)">
+        <member name="P:ArtificialArt.Waves.IWave.Item(System.Double)">
             <summary>
             Get amplitude momentum Y value at X
             </summary>
             <param name="x">x coordinates</param>
             <returns>amplitude momentum Y value at X</returns>
         </member>
-        <member name="F:Waves.WavePack.JunctionAdd">
+        <member name="F:ArtificialArt.Waves.WavePack.JunctionAdd">
             <summary>
             Junction type for when we add two waves
             </summary>
         </member>
-        <member name="F:Waves.WavePack.JunctionMultiply">
+        <member name="F:ArtificialArt.Waves.WavePack.JunctionMultiply">
             <summary>
             Junction type for when we multiply two waves
             </summary>
         </member>
-        <member name="F:Waves.WavePack.waveList">
+        <member name="F:ArtificialArt.Waves.WavePack.waveList">
             <summary>
             Internal list of waves
             </summary>
         </member>
-        <member name="F:Waves.WavePack.normalizationMultiplicator">
+        <member name="F:ArtificialArt.Waves.WavePack.normalizationMultiplicator">
             <summary>
             Normalization multiplicator
             </summary>
         </member>
-        <member name="F:Waves.WavePack.waveCache">
+        <member name="F:ArtificialArt.Waves.WavePack.waveCache">
             <summary>
             Wave cache to improve performances
             </summary>
         </member>
-        <member name="F:Waves.WavePack.junctionType">
+        <member name="F:ArtificialArt.Waves.WavePack.junctionType">
             <summary>
             Current junction type (to add or multiply waves)
             </summary>
         </member>
-        <member name="M:Waves.WavePack.#ctor(System.Int32)">
+        <member name="M:ArtificialArt.Waves.WavePack.#ctor(System.Int32)">
             <summary>
             Create a wave pack with selected junction type (add or multiply) default: add
             </summary>
             <param name="junctionType">junction type (add or multiply) default: add</param>
         </member>
-        <member name="M:Waves.WavePack.#ctor">
+        <member name="M:ArtificialArt.Waves.WavePack.#ctor">
             <summary>
             Create a wave pack for which waves will be added
             </summary>
         </member>
-        <member name="M:Waves.WavePack.#ctor(Waves.IWave)">
+        <member name="M:ArtificialArt.Waves.WavePack.#ctor(ArtificialArt.Waves.IWave)">
             <summary>
             Create a wave pack from existing wave or wave pack
             </summary>
             <param name="wave">existing wave or wave pack</param>
         </member>
-        <member name="M:Waves.WavePack.op_Addition(Waves.WavePack,Waves.IWave)">
+        <member name="M:ArtificialArt.Waves.WavePack.op_Addition(ArtificialArt.Waves.WavePack,ArtificialArt.Waves.IWave)">
             <summary>
             Add two wave or wave packs
             </summary>
@@ -1155,349 +1136,356 @@
             <param name="wave2">wave 2</param>
             <returns>joined wave pack</returns>
         </member>
-        <member name="M:Waves.WavePack.Add(Waves.IWave)">
+        <member name="M:ArtificialArt.Waves.WavePack.Add(ArtificialArt.Waves.IWave)">
             <summary>
             Add component wave to pack
             </summary>
             <param name="item">component wave</param>
         </member>
-        <member name="M:Waves.WavePack.Clear">
+        <member name="M:ArtificialArt.Waves.WavePack.Clear">
             <summary>
             Remove all component waves
             </summary>
         </member>
-        <member name="M:Waves.WavePack.Contains(Waves.IWave)">
+        <member name="M:ArtificialArt.Waves.WavePack.Contains(ArtificialArt.Waves.IWave)">
             <summary>
             Whether wave pack contains specified component wave
             </summary>
             <param name="item">specified component wave</param>
             <returns>Whether wave pack contains specified component wave</returns>
         </member>
-        <member name="M:Waves.WavePack.CopyTo(Waves.IWave[],System.Int32)">
+        <member name="M:ArtificialArt.Waves.WavePack.CopyTo(ArtificialArt.Waves.IWave[],System.Int32)">
             <summary>
             Copy to an array of waves
             </summary>
             <param name="array">array of waves</param>
             <param name="arrayIndex">array index</param>
         </member>
-        <member name="M:Waves.WavePack.Remove(Waves.IWave)">
+        <member name="M:ArtificialArt.Waves.WavePack.Remove(ArtificialArt.Waves.IWave)">
             <summary>
             Remove component wave
             </summary>
             <param name="item">component wave</param>
             <returns>if removal succeeded</returns>
         </member>
-        <member name="M:Waves.WavePack.GetEnumerator">
+        <member name="M:ArtificialArt.Waves.WavePack.GetEnumerator">
             <summary>
             Needed to do foreach iteration
             </summary>
             <returns>Wave iterator</returns>
         </member>
-        <member name="M:Waves.WavePack.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:ArtificialArt.Waves.WavePack.System#Collections#IEnumerable#GetEnumerator">
             <summary>
             Needed to do foreach iteration
             </summary>
             <returns>Wave iterator</returns>
         </member>
-        <member name="M:Waves.WavePack.IndexOf(Waves.IWave)">
+        <member name="M:ArtificialArt.Waves.WavePack.IndexOf(ArtificialArt.Waves.IWave)">
             <summary>
             Returns the index of selected wave component
             </summary>
             <param name="item">selected wave component</param>
             <returns>index of selected wave component</returns>
         </member>
-        <member name="M:Waves.WavePack.Insert(System.Int32,Waves.IWave)">
+        <member name="M:ArtificialArt.Waves.WavePack.Insert(System.Int32,ArtificialArt.Waves.IWave)">
             <summary>
             Insert component wave at selected index
             </summary>
             <param name="index">selected index</param>
             <param name="item">component wave[pack]</param>
         </member>
-        <member name="M:Waves.WavePack.RemoveAt(System.Int32)">
+        <member name="M:ArtificialArt.Waves.WavePack.RemoveAt(System.Int32)">
             <summary>
             Removes component wave at selected index
             </summary>
             <param name="index">selected index</param>
         </member>
-        <member name="M:Waves.WavePack.Equals(Waves.IWave)">
+        <member name="M:ArtificialArt.Waves.WavePack.Equals(ArtificialArt.Waves.IWave)">
             <summary>
             Whether wave or wavepack equals the other
             </summary>
             <param name="other">other wave</param>
             <returns>Whether wave or wavepack equals the other</returns>
         </member>
-        <member name="M:Waves.WavePack.Normalize">
+        <member name="M:ArtificialArt.Waves.WavePack.Normalize">
             <summary>
             Normalize the wave pack
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Waves.WavePack.GetRandomJunctionType(System.Random)">
+        <member name="M:ArtificialArt.Waves.WavePack.GetRandomJunctionType(System.Random)">
             <summary>
             Return a random wave junction type (add or multiply)
             </summary>
             <param name="random">random number generator</param>
             <returns>random wave junction type (add or multiply)</returns>
         </member>
-        <member name="P:Waves.WavePack.Count">
+        <member name="P:ArtificialArt.Waves.WavePack.Count">
             <summary>
             Count how many component waves
             </summary>
         </member>
-        <member name="P:Waves.WavePack.IsReadOnly">
+        <member name="P:ArtificialArt.Waves.WavePack.IsReadOnly">
             <summary>
             Whether wave pack is read only
             </summary>
         </member>
-        <member name="P:Waves.WavePack.Item(System.Int32)">
+        <member name="P:ArtificialArt.Waves.WavePack.Item(System.Int32)">
             <summary>
             Returns component wave at index
             </summary>
             <param name="index">index</param>
             <returns>component wave at index</returns>
         </member>
-        <member name="P:Waves.WavePack.Item(System.Double)">
+        <member name="P:ArtificialArt.Waves.WavePack.Item(System.Double)">
             <summary>
             Get amplitude at position/time x
             </summary>
             <param name="x">x</param>
             <returns>amplitude at position/time x</returns>
         </member>
-        <member name="T:Linguistics.Word">
+        <member name="T:ArtificialArt.Linguistics.Word">
             <summary>
             Represents a word as a wrapper to a string but with more functionalities
             </summary>
         </member>
-        <member name="F:Linguistics.Word.stringValue">
+        <member name="F:ArtificialArt.Linguistics.Word.stringValue">
             <summary>
             String value
             </summary>
         </member>
-        <member name="F:Linguistics.Word.leftDelimiter">
+        <member name="F:ArtificialArt.Linguistics.Word.leftDelimiter">
             <summary>
             Delimiter before word
             </summary>
         </member>
-        <member name="F:Linguistics.Word.rightDelimiter">
+        <member name="F:ArtificialArt.Linguistics.Word.rightDelimiter">
             <summary>
             Delimiter after word
             </summary>
         </member>
-        <member name="F:Linguistics.Word.nextWord">
+        <member name="F:ArtificialArt.Linguistics.Word.nextWord">
             <summary>
             Next word
             </summary>
         </member>
-        <member name="F:Linguistics.Word.previousWord">
+        <member name="F:ArtificialArt.Linguistics.Word.previousWord">
             <summary>
             Previous word
             </summary>
         </member>
-        <member name="F:Linguistics.Word.isSentenceBegin">
+        <member name="F:ArtificialArt.Linguistics.Word.isSentenceBegin">
             <summary>
             Whether the word is at the begining of a sentence
             </summary>
         </member>
-        <member name="M:Linguistics.Word.#ctor(System.String)">
+        <member name="M:ArtificialArt.Linguistics.Word.#ctor(System.String)">
             <summary>
             Create a word from a string
             </summary>
             <param name="stringValue">string value</param>
         </member>
-        <member name="M:Linguistics.Word.ToString">
+        <member name="M:ArtificialArt.Linguistics.Word.ToString">
             <summary>
             Get word's string value
             </summary>
             <returns>word's string value</returns>
         </member>
-        <member name="P:Linguistics.Word.LeftDelimiter">
+        <member name="M:ArtificialArt.Linguistics.Word.Equals(ArtificialArt.Linguistics.Word)">
+            <summary>
+            Whether word is the same as the other (case insensitive)
+            </summary>
+            <param name="other">other word</param>
+            <returns>Whether word is the same as the other (case insensitive)</returns>
+        </member>
+        <member name="P:ArtificialArt.Linguistics.Word.LeftDelimiter">
             <summary>
             Delimiter before word
             </summary>
         </member>
-        <member name="P:Linguistics.Word.RightDelimiter">
+        <member name="P:ArtificialArt.Linguistics.Word.RightDelimiter">
             <summary>
             Delimiter after word
             </summary>
         </member>
-        <member name="P:Linguistics.Word.NextWord">
+        <member name="P:ArtificialArt.Linguistics.Word.NextWord">
             <summary>
             Next word
             </summary>
         </member>
-        <member name="P:Linguistics.Word.PreviousWord">
+        <member name="P:ArtificialArt.Linguistics.Word.PreviousWord">
             <summary>
             Previous word
             </summary>
         </member>
-        <member name="P:Linguistics.Word.IsSentenceBegin">
+        <member name="P:ArtificialArt.Linguistics.Word.IsSentenceBegin">
             <summary>
             Whether the word is at the begining of a sentence
             </summary>
         </member>
-        <member name="P:Linguistics.Word.StringValue">
+        <member name="P:ArtificialArt.Linguistics.Word.StringValue">
             <summary>
             String value
             </summary>
         </member>
-        <member name="T:Linguistics.English.NotManager">
+        <member name="T:ArtificialArt.Linguistics.English.NotManager">
             <summary>
             Manages operations on the word "not"
             </summary>
         </member>
-        <member name="F:Linguistics.English.NotManager.wordToPutNotAfterList">
+        <member name="F:ArtificialArt.Linguistics.English.NotManager.wordToPutNotAfterList">
             <summary>
             List of words that can be followed by "not"
             </summary>
         </member>
-        <member name="M:Linguistics.English.NotManager.AddNotBeforeFirstWordEndingWithIng(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.NotManager.AddNotBeforeFirstWordEndingWithIng(System.String)">
             <summary>
             Add word "not" before first word ending with "ing" or "in'"
             </summary>
             <param name="text">text to modify</param>
             <returns>text with added "not" before first word wnding with ing or in'</returns>
         </member>
-        <member name="M:Linguistics.English.NotManager.ContaisnWordToPutNotAfter(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.NotManager.ContaisnWordToPutNotAfter(System.String)">
             <summary>
             Whether there is a word that can be followed by "not" in original proposition
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Whether there is a word that can be followed by "not" in original proposition</returns>
         </member>
-        <member name="M:Linguistics.English.NotManager.AddNotAfterFirstWordForIt(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.NotManager.AddNotAfterFirstWordForIt(System.String)">
             <summary>
             Add "not" before first word that can be followed by "not"
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>altered proposition</returns>
         </member>
-        <member name="T:Linguistics.English.QuestionManager">
+        <member name="T:ArtificialArt.Linguistics.English.QuestionManager">
             <summary>
             Manages operations and analysis on questions
             </summary>
         </member>
-        <member name="F:Linguistics.English.QuestionManager.questionManagerByMarkOnly">
+        <member name="F:ArtificialArt.Linguistics.English.QuestionManager.questionManagerByMarkOnly">
             <summary>
             Manages questions that are questions just because they contain ? for they wouldn't be questions otherwise
             </summary>
         </member>
-        <member name="F:Linguistics.English.QuestionManager.questionManagerByStartingWithQuestionWord">
+        <member name="F:ArtificialArt.Linguistics.English.QuestionManager.questionManagerByStartingWithQuestionWord">
             <summary>
             Manages questions that are questions because they start with question starting words
             </summary>
         </member>
-        <member name="F:Linguistics.English.QuestionManager.questionManagerByEndingWord">
+        <member name="F:ArtificialArt.Linguistics.English.QuestionManager.questionManagerByEndingWord">
             <summary>
             Manages questions that are questions because they end with a special word for questions
             </summary>
         </member>
-        <member name="F:Linguistics.English.QuestionManager.questionManagerByModalVerb">
+        <member name="F:ArtificialArt.Linguistics.English.QuestionManager.questionManagerByModalVerb">
             <summary>
             Manages questions that are questions because they begin with modal verbs
             </summary>
         </member>
-        <member name="F:Linguistics.English.QuestionManager.questionManagerStartingWithQuestionWordPlusVerb">
+        <member name="F:ArtificialArt.Linguistics.English.QuestionManager.questionManagerStartingWithQuestionWordPlusVerb">
             <summary>
             Manages questions that are questions because they begin with question word plus verb
             </summary>
         </member>
-        <member name="F:Linguistics.English.QuestionManager.questionAdder">
+        <member name="F:ArtificialArt.Linguistics.English.QuestionManager.questionAdder">
             <summary>
             Convert affirmation to question
             </summary>
         </member>
-        <member name="M:Linguistics.English.QuestionManager.IsQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManager.IsQuestion(System.String)">
             <summary>
             Whether provied proposition is question or not
             </summary>
             <param name="originalProposition">provided proposition</param>
             <returns>Whether provied proposition is question or not</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionManager.InvertQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManager.InvertQuestion(System.String)">
             <summary>
             Convert original proposition to question if it's not and to affirmation or negation if it's a question
             </summary>
             <param name="proposition">original proposition</param>
             <returns>Converted original proposition to question if it wasn't and to affirmation or negation if was a question</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionManager.RemoveApostropheSQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManager.RemoveApostropheSQuestion(System.String)">
             <summary>
             Remove apostrophe from question word
             </summary>
             <param name="proposition">proposition</param>
             <returns>replaced 's to is</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionManager.IsFirstWordDo(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManager.IsFirstWordDo(System.String)">
             <summary>
             Whether 1st word is "do"
             </summary>
             <param name="proposition">proposition</param>
             <returns>Whether 1st word is "do"</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionManager.IsSecondWordDo(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManager.IsSecondWordDo(System.String)">
             <summary>
             Whether 2nd word is "do"
             </summary>
             <param name="proposition">proposition</param>
             <returns>Whether 2nd word is "do"</returns>
         </member>
-        <member name="T:Linguistics.WordListFromString">
+        <member name="T:ArtificialArt.Linguistics.WordListFromString">
             <summary>
             Word list created from string
             </summary>
         </member>
-        <member name="M:Linguistics.WordListFromString.#ctor(System.String)">
+        <member name="M:ArtificialArt.Linguistics.WordListFromString.#ctor(System.String)">
             <summary>
             Create word list from string
             </summary>
-            <param name="resourceName">resource name</param>
+            <param name="resourceValue">resource value</param>
         </member>
-        <member name="T:Linguistics.StringManipulations">
+        <member name="T:ArtificialArt.Linguistics.StringManipulations">
             <summary>
             Used for generic string manipulations
             </summary>
         </member>
-        <member name="F:Linguistics.StringManipulations.keepCaseReplacer">
+        <member name="F:ArtificialArt.Linguistics.StringManipulations.keepCaseReplacer">
             <summary>
             Used to replace word in string while keeping original case structure
             </summary>
         </member>
-        <member name="F:Linguistics.StringManipulations.wordSequenceReplacer">
+        <member name="F:ArtificialArt.Linguistics.StringManipulations.wordSequenceReplacer">
             <summary>
             Manages replace of word sequences
             </summary>
         </member>
-        <member name="F:Linguistics.StringManipulations.wordRemover">
+        <member name="F:ArtificialArt.Linguistics.StringManipulations.wordRemover">
             <summary>
             Used to remove words from strings
             </summary>
         </member>
-        <member name="F:Linguistics.StringManipulations.wordDelimiterList">
+        <member name="F:ArtificialArt.Linguistics.StringManipulations.wordDelimiterList">
             <summary>
             List of possible word delimiters
             </summary>
         </member>
-        <member name="F:Linguistics.StringManipulations.wordDelimiterHash">
+        <member name="F:ArtificialArt.Linguistics.StringManipulations.wordDelimiterHash">
             <summary>
             HashSet of possible word delimiters
             </summary>
         </member>
-        <member name="F:Linguistics.StringManipulations.wordInsertionManager">
+        <member name="F:ArtificialArt.Linguistics.StringManipulations.wordInsertionManager">
             <summary>
             Manages insertions of words
             </summary>
         </member>
-        <member name="F:Linguistics.StringManipulations.wordInversionManager">
+        <member name="F:ArtificialArt.Linguistics.StringManipulations.wordInversionManager">
             <summary>
             Manages inversions of words
             </summary>
         </member>
-        <member name="M:Linguistics.StringManipulations.#cctor">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.#cctor">
             <summary>
             Initialization of default data
             </summary>
         </member>
-        <member name="M:Linguistics.StringManipulations.ReplaceWordKeepCase(System.String,System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.ReplaceWordKeepCase(System.String,System.String,System.String)">
             <summary>
             Replace content in string but keep original case
             </summary>
@@ -1506,7 +1494,7 @@
             <param name="to">to replace to</param>
             <returns>String with replaced content with case kept</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.InvertWordKeepCase(System.String,System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.InvertWordKeepCase(System.String,System.String,System.String)">
             <summary>
             Invert two word occurence in a string but keep original case
             </summary>
@@ -1515,28 +1503,28 @@
             <param name="word2">word 2</param>
             <returns>String with occurences inverted with case kept</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.IsUpperCase(System.Char)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.IsUpperCase(System.Char)">
             <summary>
             Whether a char is upperCase
             </summary>
             <param name="letter">char</param>
             <returns>Whether a char is upperCase</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.ToUpper(System.Char)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.ToUpper(System.Char)">
             <summary>
             Convert a char to upperCase
             </summary>
             <param name="letter">char</param>
             <returns>UpperCase version of char</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.ToLower(System.Char)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.ToLower(System.Char)">
             <summary>
             Convert a char to lowerCase
             </summary>
             <param name="letter">char</param>
             <returns>lowerCase version</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.ContainsWord(System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.ContainsWord(System.String,System.String)">
             <summary>
             Whether string contains specified word
             </summary>
@@ -1544,7 +1532,7 @@
             <param name="word">word to find in text</param>
             <returns>Whether string contains specified word</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.RemoveWord(System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.RemoveWord(System.String,System.String)">
             <summary>
             Remove word from string
             </summary>
@@ -1552,7 +1540,7 @@
             <param name="wordToRemove">word to remove</param>
             <returns>String with specified word removed</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.RemoveWord(System.String,System.String,System.Int32)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.RemoveWord(System.String,System.String,System.Int32)">
             <summary>
             Remove word from string by word name
             </summary>
@@ -1561,7 +1549,7 @@
             <param name="occurenceCount">how many times we remove it (default: infinite: 0)</param>
             <returns>String with specified word removed</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.RemoveWord(System.String,System.Int32,System.Boolean)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.RemoveWord(System.String,System.Int32,System.Boolean)">
             <summary>
             Remove word from string by word position
             </summary>
@@ -1570,7 +1558,7 @@
             <param name="isKeepDelimiterAfterNotBefore">true: keep delimiter after removed word, false: keep delimiter before word to remove</param>
             <returns>String with removed word at specified position with specified delimiter kept</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.InsertWords(System.String,System.String,System.Int32)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.InsertWords(System.String,System.String,System.Int32)">
             <summary>
             Insert a word or a groupe of word at provided index (0: before everything)
             </summary>
@@ -1579,7 +1567,7 @@
             <param name="positionIndex">position index</param>
             <returns>new string with inserted words</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.InvertWordPosition(System.String,System.Int32,System.Int32)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.InvertWordPosition(System.String,System.Int32,System.Int32)">
             <summary>
             Invert word positions in string
             </summary>
@@ -1588,7 +1576,7 @@
             <param name="wordPosition2">word2's position</param>
             <returns>String with position of word 1 and word 2 inverted</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.ReplaceWordSequence(System.String,System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.ReplaceWordSequence(System.String,System.String,System.String)">
             <summary>
             Replace a word sequence in proposition
             </summary>
@@ -1597,7 +1585,7 @@
             <param name="toSequence">from word sequence (case insensitive, delimiter insensitive)</param>
             <returns>proposition with replaced word sequences</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.ReplaceWordSequence(System.String,System.String,System.Int32,System.String,System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.ReplaceWordSequence(System.String,System.String,System.Int32,System.String,System.String,System.String)">
             <summary>
             Replace word sequence
             </summary>
@@ -1609,12 +1597,12 @@
             <param name="endReplace">ending of replaced word sequence</param>
             <returns>Text with replaced word sequences</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.ReverseString(System.String)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.ReverseString(System.String)">
             <summary>
             Receives string and returns the string with its letters reversed.
             </summary>
         </member>
-        <member name="M:Linguistics.StringManipulations.ReplaceWordInsensitiveLower(System.String,System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.ReplaceWordInsensitiveLower(System.String,System.String,System.String)">
             <summary>
             Convert string to all lowercase and replace word from to
             </summary>
@@ -1623,26 +1611,26 @@
             <param name="to">to word</param>
             <returns>lowcase string with replaced words</returns>
         </member>
-        <member name="M:Linguistics.StringManipulations.IsWordDelimiter(System.Char)">
+        <member name="M:ArtificialArt.Linguistics.StringManipulations.IsWordDelimiter(System.Char)">
             <summary>
             Whether character is a word delimiter
             </summary>
             <param name="letter">character</param>
             <returns>Whether character is a word delimiter</returns>
         </member>
-        <member name="T:Linguistics.English.FirstSecondPersonManager">
+        <member name="T:ArtificialArt.Linguistics.English.FirstSecondPersonManager">
             <summary>
             Manages words such as you, me, I, yours mine, my, mines etc...
             </summary>
         </member>
-        <member name="M:Linguistics.English.FirstSecondPersonManager.InvertFirstSecondPerson(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.FirstSecondPersonManager.InvertFirstSecondPerson(System.String)">
             <summary>
             Invert "YOU" and "I" from string (your and my etc...)
             </summary>
             <param name="originalText">original text</param>
             <returns>Text with YOU and I inverted (your and my etc...)</returns>
         </member>
-        <member name="M:Linguistics.English.FirstSecondPersonManager.FixCase(System.String,System.Boolean)">
+        <member name="M:ArtificialArt.Linguistics.English.FirstSecondPersonManager.FixCase(System.String,System.Boolean)">
             <summary>
             Fix the case for words: You, me and I
             </summary>
@@ -1650,139 +1638,139 @@
             <param name="isSentenceBegin">whether the word is at the beginin of a sentence</param>
             <returns>word with fixed case</returns>
         </member>
-        <member name="T:Linguistics.English.Analysis">
+        <member name="T:ArtificialArt.Linguistics.English.Analysis">
             <summary>
             For linguistic and semantical analysis
             </summary>
         </member>
-        <member name="F:Linguistics.English.Analysis.subjectObjectDetector">
+        <member name="F:ArtificialArt.Linguistics.English.Analysis.subjectObjectDetector">
             <summary>
             Manages I and YOU
             </summary>
         </member>
-        <member name="F:Linguistics.English.Analysis.verbManager">
+        <member name="F:ArtificialArt.Linguistics.English.Analysis.verbManager">
             <summary>
             Manages analysis of verbs
             </summary>
         </member>
-        <member name="F:Linguistics.English.Analysis.pronounList">
+        <member name="F:ArtificialArt.Linguistics.English.Analysis.pronounList">
             <summary>
             List of pronouns
             </summary>
         </member>
-        <member name="F:Linguistics.English.Analysis.prepositionList">
+        <member name="F:ArtificialArt.Linguistics.English.Analysis.prepositionList">
             <summary>
             List of prepositions
             </summary>
         </member>
-        <member name="F:Linguistics.English.Analysis.postpositionList">
+        <member name="F:ArtificialArt.Linguistics.English.Analysis.postpositionList">
             <summary>
             List of postpositions
             </summary>
         </member>
-        <member name="F:Linguistics.English.Analysis.questionBeginList">
+        <member name="F:ArtificialArt.Linguistics.English.Analysis.questionBeginList">
             <summary>
             List of words like "when, why, how, where"
             </summary>
         </member>
-        <member name="F:Linguistics.English.Analysis.questionEndingList">
+        <member name="F:ArtificialArt.Linguistics.English.Analysis.questionEndingList">
             <summary>
             List of words like "when, why, how, where" for question endings
             </summary>
         </member>
-        <member name="F:Linguistics.English.Analysis.subordinatingConjunctionBeforeSubjectList">
+        <member name="F:ArtificialArt.Linguistics.English.Analysis.subordinatingConjunctionBeforeSubjectList">
             <summary>
             List of subordinating conjunctions that can be put before subject. For instance: while, if
             </summary>
         </member>
-        <member name="M:Linguistics.English.Analysis.#cctor">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.#cctor">
             <summary>
             Static constructor
             </summary>
         </member>
-        <member name="M:Linguistics.English.Analysis.CountWords(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.CountWords(System.String)">
             <summary>
             Count how many words in string
             </summary>
             <param name="originalString"></param>
             <returns></returns>
         </member>
-        <member name="M:Linguistics.English.Analysis.IsVerb(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.IsVerb(System.String)">
             <summary>
             Whether the word is a verb
             </summary>
             <param name="word">word</param>
             <returns>Whether the word is a verb</returns>
         </member>
-        <member name="M:Linguistics.English.Analysis.IsModalVerb(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.IsModalVerb(System.String)">
             <summary>
             Whether the word is a modal verb
             </summary>
             <param name="word">word</param>
             <returns>Whether the word is a modal verb</returns>
         </member>
-        <member name="M:Linguistics.English.Analysis.IsPronoun(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.IsPronoun(System.String)">
             <summary>
             Whether the word is a pronoun
             </summary>
             <param name="word">word</param>
             <returns>Whether the word is a pronoun</returns>
         </member>
-        <member name="M:Linguistics.English.Analysis.IsPreposition(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.IsPreposition(System.String)">
             <summary>
             Whether word is a preposition
             </summary>
             <param name="word">word</param>
             <returns>Whether word is a preposition</returns>
         </member>
-        <member name="M:Linguistics.English.Analysis.IsPostposition(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.IsPostposition(System.String)">
             <summary>
             Whether word is a postposition
             </summary>
             <param name="word">word</param>
             <returns>Whether word is a preposition</returns>
         </member>
-        <member name="M:Linguistics.English.Analysis.IsSubjectNotObject(Linguistics.Word)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.IsSubjectNotObject(ArtificialArt.Linguistics.Word)">
             <summary>
             Whether word is a subject rather than an object (from the context)
             </summary>
             <param name="word">word</param>
             <returns>Whether word is a subject rather than an object (from the context)</returns>
         </member>
-        <member name="M:Linguistics.English.Analysis.IsQuestionBeginWord(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.IsQuestionBeginWord(System.String)">
             <summary>
             Whether word is a word like: "how, when, where, why" etc
             </summary>
             <param name="word">word</param>
             <returns>Whether word is a word like: "how, when, where, why" etc</returns>
         </member>
-        <member name="M:Linguistics.English.Analysis.IsQuestionEndingWord(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.IsQuestionEndingWord(System.String)">
             <summary>
             Whether word is a word like: "how, when, where, why" for question ending
             </summary>
             <param name="word">word</param>
             <returns>Whether word is a word like: "how, when, where, why" etc</returns>
         </member>
-        <member name="M:Linguistics.English.Analysis.IsSubordinatingConjunctionBeforeSubject(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.IsSubordinatingConjunctionBeforeSubject(System.String)">
             <summary>
             Whether word is a subordinating conjunction that can be put before a verb
             </summary>
             <param name="word">word to analyze</param>
             <returns>Whether word is a subordinating conjunction that can be put before a verb</returns>
         </member>
-        <member name="M:Linguistics.English.Analysis.ContainsVerb(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Analysis.ContainsVerb(System.String)">
             <summary>
             Whether text contains verb
             </summary>
             <param name="text">text to analyze</param>
             <returns>Whether text contains verb</returns>
         </member>
-        <member name="T:Linguistics.WordInversionManager">
+        <member name="T:ArtificialArt.Linguistics.WordInversionManager">
             <summary>
             Manages inversions of words
             </summary>
         </member>
-        <member name="M:Linguistics.WordInversionManager.InvertWordPosition(System.String,System.Int32,System.Int32)">
+        <member name="M:ArtificialArt.Linguistics.WordInversionManager.InvertWordPosition(System.String,System.Int32,System.Int32)">
             <summary>
             Invert word positions in string
             </summary>
@@ -1791,12 +1779,12 @@
             <param name="wordPosition2">word2's position</param>
             <returns>String with position of word 1 and word 2 inverted</returns>
         </member>
-        <member name="T:Linguistics.WordInsertionManager">
+        <member name="T:ArtificialArt.Linguistics.WordInsertionManager">
             <summary>
             Manages insertions of words
             </summary>
         </member>
-        <member name="M:Linguistics.WordInsertionManager.InsertWords(System.String,System.String,System.Int32)">
+        <member name="M:ArtificialArt.Linguistics.WordInsertionManager.InsertWords(System.String,System.String,System.Int32)">
             <summary>
             Insert a word or a groupe of word at provided index (0: before everything)
             </summary>
@@ -1805,29 +1793,29 @@
             <param name="desiredIndex">desired position index</param>
             <returns>new string with inserted words</returns>
         </member>
-        <member name="T:Linguistics.English.SynonymManager">
+        <member name="T:ArtificialArt.Linguistics.English.SynonymManager">
             <summary>
             Manages operations and analysys on synonyms and antonyms
             </summary>
         </member>
-        <member name="F:Linguistics.English.SynonymManager.xmlMatrixSaverLoader">
+        <member name="F:ArtificialArt.Linguistics.English.SynonymManager.xmlMatrixSaverLoader">
             <summary>
             Manages saving and loading matrixes
             </summary>
         </member>
-        <member name="F:Linguistics.English.SynonymManager._synonymMatrix">
+        <member name="F:ArtificialArt.Linguistics.English.SynonymManager._synonymMatrix">
             <summary>
             Matrix that will contain synonyms
             Don't use directly, use synonymMatrix instead
             </summary>
         </member>
-        <member name="F:Linguistics.English.SynonymManager._antonymMatrix">
+        <member name="F:ArtificialArt.Linguistics.English.SynonymManager._antonymMatrix">
             <summary>
             Matrix that will contain antonyms
             Don't use directly, use antonymMatrix instead
             </summary>
         </member>
-        <member name="M:Linguistics.English.SynonymManager.InvertAntonym(System.String,System.Int32)">
+        <member name="M:ArtificialArt.Linguistics.English.SynonymManager.InvertAntonym(System.String,System.Int32)">
             <summary>
             Invert words to their antonym in proposition
             </summary>
@@ -1835,42 +1823,42 @@
             <param name="desiredOccurenceReplacement">desired occurence replacement</param>
             <returns>Proposition with inverted antonym</returns>
         </member>
-        <member name="M:Linguistics.English.SynonymManager.ContainsAntonym(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.SynonymManager.ContainsAntonym(System.String)">
             <summary>
             Whether there is a know antonym to replace a word in original proposition
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Whether there is a know antonym to replace a word in original proposition</returns>
         </member>
-        <member name="M:Linguistics.English.SynonymManager.TryFindBestSynonym(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.SynonymManager.TryFindBestSynonym(System.String)">
             <summary>
             Try find best synonym for provided word or return null if none found
             </summary>
             <param name="originalWord">original word</param>
             <returns>Try find an synonym for provided word or return null if none found</returns>
         </member>
-        <member name="M:Linguistics.English.SynonymManager.TryFindBestAntonym(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.SynonymManager.TryFindBestAntonym(System.String)">
             <summary>
             Try find best antonym for provided word or return null if none found
             </summary>
             <param name="originalWord">original word</param>
             <returns>Try find an antonym for provided word or return null if none found</returns>
         </member>
-        <member name="M:Linguistics.English.SynonymManager.TryConvertTextToAntonym(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.SynonymManager.TryConvertTextToAntonym(System.String)">
             <summary>
             Try replace each word of text to a valid antonym
             </summary>
             <param name="text">text</param>
             <returns>text with replaced each word of text to a valid antonym</returns>
         </member>
-        <member name="M:Linguistics.English.SynonymManager.TryConvertTextToSynonym(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.SynonymManager.TryConvertTextToSynonym(System.String)">
             <summary>
             Try replace each word of text to a valid synonym
             </summary>
             <param name="text">text</param>
             <returns>text with replaced each word of text to a valid synonym</returns>
         </member>
-        <member name="M:Linguistics.English.SynonymManager.TryFindBestAntonymOrSynonym(System.String,Markov.Matrix)">
+        <member name="M:ArtificialArt.Linguistics.English.SynonymManager.TryFindBestAntonymOrSynonym(System.String,ArtificialArt.Markov.Matrix)">
             <summary>
             Try find best antonym or synonym for provided word or return null if none found
             </summary>
@@ -1878,7 +1866,7 @@
             <param name="matrix">matrix to use</param>
             <returns>Try find an synonym or antonym for provided word or return null if none found</returns>
         </member>
-        <member name="M:Linguistics.English.SynonymManager.TryConvertTextToAntonymOrAntonym(System.String,Markov.Matrix)">
+        <member name="M:ArtificialArt.Linguistics.English.SynonymManager.TryConvertTextToAntonymOrAntonym(System.String,ArtificialArt.Markov.Matrix)">
             <summary>
             Try replace each word in text with a synonym or antonym depending on provided matrix
             </summary>
@@ -1886,110 +1874,110 @@
             <param name="synonymOrAntonymMatrix">provided matrix</param>
             <returns>text for which each word is replaced with a synonym or antonym depending on provided matrix</returns>
         </member>
-        <member name="P:Linguistics.English.SynonymManager.synonymMatrix">
+        <member name="P:ArtificialArt.Linguistics.English.SynonymManager.synonymMatrix">
             <summary>
             Matrix that will contain synonyms
             </summary>
         </member>
-        <member name="P:Linguistics.English.SynonymManager.antonymMatrix">
+        <member name="P:ArtificialArt.Linguistics.English.SynonymManager.antonymMatrix">
             <summary>
             Matrix that will contain antonyms
             </summary>
         </member>
-        <member name="T:Linguistics.English.QuestionManagerByStartingWithQuestionWord">
+        <member name="T:ArtificialArt.Linguistics.English.QuestionManagerByStartingWithQuestionWord">
             <summary>
             Manages questions that are questions because they start with question starting words
             </summary>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerByStartingWithQuestionWord.IsQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerByStartingWithQuestionWord.IsQuestion(System.String)">
             <summary>
             Whether proposition is detected to be a question because it starts with a question word
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Whether proposition is detected to be a question because it starts with a question word</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerByStartingWithQuestionWord.RemoveQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerByStartingWithQuestionWord.RemoveQuestion(System.String)">
             <summary>
             Remove question from proposition
             </summary>
             <param name="proposition">original proposition</param>
             <returns>proposition with question removed</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerByStartingWithQuestionWord.IsFirstAndSecondWordQuestionBeginWord(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerByStartingWithQuestionWord.IsFirstAndSecondWordQuestionBeginWord(System.String)">
             <summary>
             Whether the two first words are question begining words
             </summary>
             <param name="proposition">proposition to analyze</param>
             <returns>Whether the two first words are question begining words</returns>
         </member>
-        <member name="T:WebServices.GoogleChatBot">
+        <member name="T:ArtificialArt.WebServices.GoogleChatBot">
             <summary>
             Google bot
             </summary>
         </member>
-        <member name="F:WebServices.GoogleChatBot.webBot">
+        <member name="F:ArtificialArt.WebServices.GoogleChatBot.webBot">
             <summary>
             Web bot used to get page contents
             </summary>
         </member>
-        <member name="F:WebServices.GoogleChatBot.htmlTag">
+        <member name="F:ArtificialArt.WebServices.GoogleChatBot.htmlTag">
             <summary>
             Html tag regex
             </summary>
         </member>
-        <member name="F:WebServices.GoogleChatBot.result">
+        <member name="F:ArtificialArt.WebServices.GoogleChatBot.result">
             <summary>
             Result list
             </summary>
         </member>
-        <member name="M:WebServices.GoogleChatBot.Search(System.String)">
+        <member name="M:ArtificialArt.WebServices.GoogleChatBot.Search(System.String)">
             <summary>
             Start a new search
             </summary>
             <param name="searchCriteria">search criteria</param>
         </member>
-        <member name="M:WebServices.GoogleChatBot.GetEnumerator">
+        <member name="M:ArtificialArt.WebServices.GoogleChatBot.GetEnumerator">
             <summary>
             Search results
             </summary>
             <returns>Search results</returns>
         </member>
-        <member name="P:WebServices.GoogleChatBot.Count">
+        <member name="P:ArtificialArt.WebServices.GoogleChatBot.Count">
             <summary>
             Count search results
             </summary>
         </member>
-        <member name="T:Waves.Wave">
+        <member name="T:ArtificialArt.Waves.Wave">
             <summary>
             Represents a wave
             </summary>
         </member>
-        <member name="F:Waves.Wave.amplitude">
+        <member name="F:ArtificialArt.Waves.Wave.amplitude">
             <summary>
             Amplitude (from 0 to 1)
             </summary>
         </member>
-        <member name="F:Waves.Wave.frequency">
+        <member name="F:ArtificialArt.Waves.Wave.frequency">
             <summary>
             Amount of wave cycle per common position/time span
             </summary>
         </member>
-        <member name="F:Waves.Wave.phase">
+        <member name="F:ArtificialArt.Waves.Wave.phase">
             <summary>
             Phase, from -1 to 1
             </summary>
         </member>
-        <member name="F:Waves.Wave.waveFunction">
+        <member name="F:ArtificialArt.Waves.Wave.waveFunction">
             <summary>
             Wave's function
             </summary>
         </member>
-        <member name="F:Waves.Wave.waveCache">
+        <member name="F:ArtificialArt.Waves.Wave.waveCache">
             <summary>
             To improve wave rendering performances
             </summary>
         </member>
-        <member name="M:Waves.Wave.#ctor(System.Double,System.Double,System.Double)">
+        <member name="M:ArtificialArt.Waves.Wave.#ctor(System.Double,System.Double,System.Double)">
             <summary>
             Create a wave
             </summary>
@@ -1997,7 +1985,7 @@
             <param name="frequency">Amount of wave cycle per common position/time span</param>
             <param name="phase">Phase, from -1 to 1</param>
         </member>
-        <member name="M:Waves.Wave.#ctor(System.Double,System.Double,System.Double,Waves.WaveFunction)">
+        <member name="M:ArtificialArt.Waves.Wave.#ctor(System.Double,System.Double,System.Double,ArtificialArt.Waves.WaveFunction)">
             <summary>
             Create a wave
             </summary>
@@ -2006,7 +1994,7 @@
             <param name="phase">Phase, from -1 to 1</param>
             <param name="waveFunction">wave function (default: Math.sin)</param>
         </member>
-        <member name="M:Waves.Wave.op_Addition(Waves.Wave,Waves.IWave)">
+        <member name="M:ArtificialArt.Waves.Wave.op_Addition(ArtificialArt.Waves.Wave,ArtificialArt.Waves.IWave)">
             <summary>
             Add two waves
             </summary>
@@ -2014,112 +2002,112 @@
             <param name="wave2">wave 2</param>
             <returns>wave pack</returns>
         </member>
-        <member name="M:Waves.Wave.Equals(Waves.IWave)">
+        <member name="M:ArtificialArt.Waves.Wave.Equals(ArtificialArt.Waves.IWave)">
             <summary>
             Whether waves are identical
             </summary>
             <param name="other">other wave</param>
             <returns>Whether waves are identical</returns>
         </member>
-        <member name="M:Waves.Wave.Normalize">
+        <member name="M:ArtificialArt.Waves.Wave.Normalize">
             <summary>
             Normalize the wave to amplitude 1
             </summary>
         </member>
-        <member name="P:Waves.Wave.Item(System.Double)">
+        <member name="P:ArtificialArt.Waves.Wave.Item(System.Double)">
             <summary>
             Get amplitude at position/time x
             </summary>
             <param name="x">x</param>
             <returns>amplitude at position/time x</returns>
         </member>
-        <member name="T:Linguistics.English.QuestionManagerByEndingWord">
+        <member name="T:ArtificialArt.Linguistics.English.QuestionManagerByEndingWord">
             <summary>
             Manages questions that are questions because they end with a special word for questions
             </summary>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerByEndingWord.IsQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerByEndingWord.IsQuestion(System.String)">
             <summary>
             Whether question was detected because of the ending word
             </summary>
             <param name="originalProposition">proposition</param>
             <returns>Whether question was detected because of the ending word</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerByEndingWord.RemoveQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerByEndingWord.RemoveQuestion(System.String)">
             <summary>
             Remove question from proposition
             </summary>
             <param name="proposition">proposition</param>
             <returns>proposition with removed question</returns>
         </member>
-        <member name="T:Linguistics.English.NegationManager">
+        <member name="T:ArtificialArt.Linguistics.English.NegationManager">
             <summary>
             Performs negation of proposions
             </summary>
         </member>
-        <member name="F:Linguistics.English.NegationManager.ntManager">
+        <member name="F:ArtificialArt.Linguistics.English.NegationManager.ntManager">
             <summary>
             Manages words like "don't" and "didn't" and "doesn't"
             </summary>
         </member>
-        <member name="F:Linguistics.English.NegationManager.notManager">
+        <member name="F:ArtificialArt.Linguistics.English.NegationManager.notManager">
             <summary>
             Manages operations on the word "not"
             </summary>
         </member>
-        <member name="F:Linguistics.English.NegationManager.aintManager">
+        <member name="F:ArtificialArt.Linguistics.English.NegationManager.aintManager">
             <summary>
             Manages operations on the word "ain't"
             </summary>
         </member>
-        <member name="M:Linguistics.English.NegationManager.InvertNegation(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.NegationManager.InvertNegation(System.String)">
             <summary>
             Invert negation of proposition by removing or adding words like "not" or by replacing a word to an antonym
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Proposition with inverted negation or with antonyms</returns>
         </member>
-        <member name="M:Linguistics.English.NegationManager.ContainsWordEndingWithIng(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.NegationManager.ContainsWordEndingWithIng(System.String)">
             <summary>
             Whether text contains a word ending with ing or in'
             </summary>
             <param name="text">text to analyze</param>
             <returns>Whether text contains a word ending with ing or in'</returns>
         </member>
-        <member name="T:Markov.XmlMatrixSaverLoader">
+        <member name="T:ArtificialArt.Markov.XmlMatrixSaverLoader">
             <summary>
             Xml matrix saver loader
             </summary>
         </member>
-        <member name="M:Markov.XmlMatrixSaverLoader.Save(Markov.Matrix,System.String)">
+        <member name="M:ArtificialArt.Markov.XmlMatrixSaverLoader.Save(ArtificialArt.Markov.Matrix,System.String)">
             <summary>
             Save matrix to XML file
             </summary>
             <param name="matrix">matrix to save</param>
             <param name="fileName">file name</param>
         </member>
-        <member name="M:Markov.XmlMatrixSaverLoader.Load(System.String)">
+        <member name="M:ArtificialArt.Markov.XmlMatrixSaverLoader.Load(System.String)">
             <summary>
             Load matrix from XML file
             </summary>
             <param name="fileName">file name</param>
             <returns>Loaded matrix</returns>
         </member>
-        <member name="M:Markov.XmlMatrixSaverLoader.LoadString(System.String)">
+        <member name="M:ArtificialArt.Markov.XmlMatrixSaverLoader.LoadString(System.String)">
             <summary>
             Load matrix from string containing xml data
             </summary>
             <param name="xmlData">xmlData</param>
             <returns>Xml matrix</returns>
         </member>
-        <member name="M:Markov.XmlMatrixSaverLoader.XmlWriteData(System.Xml.XmlTextWriter,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Single}})">
+        <member name="M:ArtificialArt.Markov.XmlMatrixSaverLoader.XmlWriteData(System.Xml.XmlTextWriter,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Single}})">
             <summary>
             Write xml data
             </summary>
             <param name="textWriter">text writer</param>
             <param name="data">data to write</param>
         </member>
-        <member name="M:Markov.XmlMatrixSaverLoader.XmlWriteRow(System.Xml.XmlTextWriter,System.String,System.Collections.Generic.Dictionary{System.String,System.Single})">
+        <member name="M:ArtificialArt.Markov.XmlMatrixSaverLoader.XmlWriteRow(System.Xml.XmlTextWriter,System.String,System.Collections.Generic.Dictionary{System.String,System.Single})">
             <summary>
             Write xml row
             </summary>
@@ -2127,86 +2115,86 @@
             <param name="from">from word</param>
             <param name="row">row to write</param>
         </member>
-        <member name="M:Markov.XmlMatrixSaverLoader.LoadMatrixFromTextReader(System.Xml.XmlTextReader)">
+        <member name="M:ArtificialArt.Markov.XmlMatrixSaverLoader.LoadMatrixFromTextReader(System.Xml.XmlTextReader)">
             <summary>
             Load matrix from xml text reader
             </summary>
             <param name="textReader">xml text reader</param>
             <returns>XML Matrix</returns>
         </member>
-        <member name="T:Linguistics.English.Transformations">
+        <member name="T:ArtificialArt.Linguistics.English.Transformations">
             <summary>
             Used for linguistic transformations
             </summary>
         </member>
-        <member name="F:Linguistics.English.Transformations.firstSecondPersonManager">
+        <member name="F:ArtificialArt.Linguistics.English.Transformations.firstSecondPersonManager">
             <summary>
             Manages words such as you, me, I, yours mine, my, mines etc...
             </summary>
         </member>
-        <member name="F:Linguistics.English.Transformations.negationAndAntonymManager">
+        <member name="F:ArtificialArt.Linguistics.English.Transformations.negationAndAntonymManager">
             <summary>
             Performs negation of proposions
             </summary>
         </member>
-        <member name="F:Linguistics.English.Transformations.synonymManager">
+        <member name="F:ArtificialArt.Linguistics.English.Transformations.synonymManager">
             <summary>
             Manages operations and analysys on synonyms and antonyms
             </summary>
         </member>
-        <member name="F:Linguistics.English.Transformations.questionManager">
+        <member name="F:ArtificialArt.Linguistics.English.Transformations.questionManager">
             <summary>
             Manages operations and analysis on questions
             </summary>
         </member>
-        <member name="F:Linguistics.English.Transformations.imperativeManager">
+        <member name="F:ArtificialArt.Linguistics.English.Transformations.imperativeManager">
             <summary>
             Manages operation and analysis on imperative sentences
             </summary>
         </member>
-        <member name="M:Linguistics.English.Transformations.InvertFirstSecondPerson(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.InvertFirstSecondPerson(System.String)">
             <summary>
             Invert "YOU" and "I" from string (your and my etc...)
             </summary>
             <param name="originalText">original text</param>
             <returns>Text with YOU and I inverted (your and my etc...)</returns>
         </member>
-        <member name="M:Linguistics.English.Transformations.InvertNegation(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.InvertNegation(System.String)">
             <summary>
             Invert negation of proposition by removing or adding words like "not" or by replacing a word to an antonym
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Proposition with inverted negation or with antonyms</returns>
         </member>
-        <member name="M:Linguistics.English.Transformations.TryFindBestSynonym(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.TryFindBestSynonym(System.String)">
             <summary>
             Try find best synonym for word or return null if none found
             </summary>
             <param name="word">word</param>
             <returns>best synonym found for word or return null if none found</returns>
         </member>
-        <member name="M:Linguistics.English.Transformations.TryConvertTextToSynonym(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.TryConvertTextToSynonym(System.String)">
             <summary>
             Try replace each word of text to a valid synonym
             </summary>
             <param name="text">text</param>
             <returns>text with replaced each word of text to a valid synonym</returns>
         </member>
-        <member name="M:Linguistics.English.Transformations.TryFindBestAntonym(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.TryFindBestAntonym(System.String)">
             <summary>
             Try find best antonym for word or return null if none found
             </summary>
             <param name="word">word</param>
             <returns>best antonym found for word or return null if none found</returns>
         </member>
-        <member name="M:Linguistics.English.Transformations.TryConvertTextToAntonym(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.TryConvertTextToAntonym(System.String)">
             <summary>
             Try replace each word of text to a valid antonym
             </summary>
             <param name="text">text</param>
             <returns>text with replaced each word of text to a valid antonym</returns>
         </member>
-        <member name="M:Linguistics.English.Transformations.InvertAntonym(System.String,System.Int32)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.InvertAntonym(System.String,System.Int32)">
             <summary>
             Invert words to their antonym in proposition
             </summary>
@@ -2214,40 +2202,40 @@
             <param name="desiredOccurenceReplacement">desired occurence replacement</param>
             <returns>Proposition with inverted antonym</returns>
         </member>
-        <member name="M:Linguistics.English.Transformations.ContainsAntonym(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.ContainsAntonym(System.String)">
             <summary>
             Whether there is a know antonym to replace a word in original proposition
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Whether there is a know antonym to replace a word in original proposition</returns>
         </member>
-        <member name="M:Linguistics.English.Transformations.IsQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.IsQuestion(System.String)">
             <summary>
             Whether provied proposition is question or not
             </summary>
             <param name="originalProposition">provided proposition</param>
             <returns>Whether provied proposition is question or not</returns>
         </member>
-        <member name="M:Linguistics.English.Transformations.InvertQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.InvertQuestion(System.String)">
             <summary>
             Convert original proposition to question if it's not and to affirmation or negation if it's a question
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Converted original proposition to question if it wasn't and to affirmation or negation if was a question</returns>
         </member>
-        <member name="M:Linguistics.English.Transformations.IsImperative(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.Transformations.IsImperative(System.String)">
             <summary>
             Whether original proposition is imperative
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Whether original proposition is imperative</returns>
         </member>
-        <member name="T:Linguistics.WordRemover">
+        <member name="T:ArtificialArt.Linguistics.WordRemover">
             <summary>
             Used to remove words from strings
             </summary>
         </member>
-        <member name="M:Linguistics.WordRemover.RemoveWord(System.String,System.String,System.Int32)">
+        <member name="M:ArtificialArt.Linguistics.WordRemover.RemoveWord(System.String,System.String,System.Int32)">
             <summary>
             Remove word from string
             </summary>
@@ -2256,7 +2244,7 @@
             <param name="desiredOccurenceCount">how many times we remove it (default: infinite: 0)</param>
             <returns>String with specified word removed</returns>
         </member>
-        <member name="M:Linguistics.WordRemover.RemoveWord(System.String,System.Int32,System.Boolean)">
+        <member name="M:ArtificialArt.Linguistics.WordRemover.RemoveWord(System.String,System.Int32,System.Boolean)">
             <summary>
             Remove word from string by word position
             </summary>
@@ -2265,7 +2253,7 @@
             <param name="isKeepDelimiterAfterNotBefore">true: keep delimiter after removed word, false: keep delimiter before word to remove</param>
             <returns>String with removed word at specified position with specified delimiter kept</returns>
         </member>
-        <member name="M:Linguistics.WordRemover.GetLongestDelimiter(System.String,System.String)">
+        <member name="M:ArtificialArt.Linguistics.WordRemover.GetLongestDelimiter(System.String,System.String)">
             <summary>
             From two delimiters, return the longest one
             </summary>
@@ -2273,92 +2261,222 @@
             <param name="delimiter2">delemiter 2</param>
             <returns>longest of the two</returns>
         </member>
-        <member name="T:Linguistics.English.QuestionManagerByMarkOnly">
+        <member name="T:ArtificialArt.Linguistics.English.QuestionManagerByMarkOnly">
             <summary>
             Manages questions that are questions just because they contain ? for they wouldn't be questions otherwise
             </summary>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerByMarkOnly.IsQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerByMarkOnly.IsQuestion(System.String)">
             <summary>
             Whether question was detected by ?
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Whether question was detected by ?</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionManagerByMarkOnly.RemoveQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionManagerByMarkOnly.RemoveQuestion(System.String)">
             <summary>
             Remove question mark
             </summary>
             <param name="originalProposition">originalProposition</param>
             <returns>proposition with question mark removed</returns>
         </member>
-        <member name="T:Linguistics.English.QuestionAdder">
+        <member name="T:ArtificialArt.Linguistics.English.QuestionAdder">
             <summary>
             Converts affirmations to questions
             </summary>
         </member>
-        <member name="M:Linguistics.English.QuestionAdder.AddQuestion(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionAdder.AddQuestion(System.String)">
             <summary>
             Convert proposition to question
             </summary>
             <param name="proposition">proposition</param>
             <returns>proposition as question</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionAdder.AddDoBefore(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionAdder.AddDoBefore(System.String)">
             <summary>
             Add word "do" before proposition
             </summary>
             <param name="proposition">proposition</param>
             <returns>proposition with "do" before</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionAdder.AddDoYouThinkBefore(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionAdder.AddDoYouThinkBefore(System.String)">
             <summary>
             Add "do you think" before proposition
             </summary>
             <param name="proposition">proposition</param>
             <returns>proposition with "do you think" before</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionAdder.InvertFirstAndSecondWord(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionAdder.InvertFirstAndSecondWord(System.String)">
             <summary>
             Invert first and second word (which is a modal verb or a question word)
             </summary>
             <param name="proposition">source proposition</param>
             <returns>proposition with inverted 1st and 2nd word</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionAdder.IsSecondWordModalVerbOrQuestionBeginWord(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionAdder.IsSecondWordModalVerbOrQuestionBeginWord(System.String)">
             <summary>
             true: second word is modal verb or question begin word, else: false
             </summary>
             <param name="proposition">proposition</param>
             <returns>true: second word is modal verb or question begin word, else: false</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionAdder.IsFirstWordYouOrI(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionAdder.IsFirstWordYouOrI(System.String)">
             <summary>
             Whether first word in proposition is "you" or "I"
             </summary>
             <param name="proposition">proposition</param>
             <returns>Whether first word in proposition is "you" or "I"</returns>
         </member>
-        <member name="M:Linguistics.English.QuestionAdder.AddQuestionMark(System.String)">
+        <member name="M:ArtificialArt.Linguistics.English.QuestionAdder.AddQuestionMark(System.String)">
             <summary>
             Add question mark to proposition
             </summary>
             <param name="proposition">proposition</param>
             <returns>proposition with question mark</returns>
         </member>
-        <member name="T:Linguistics.English.ImperativeManager">
+        <member name="T:ArtificialArt.Linguistics.English.ImperativeManager">
+            <summary>
+            To manage imperative propositions
+            </summary>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.English.ImperativeManager.IsImperative(System.String)">
             <summary>
             Whether original proposition is imperative
             </summary>
             <param name="originalProposition">original proposition</param>
             <returns>Whether original proposition is imperative</returns>
         </member>
-        <member name="M:Linguistics.English.ImperativeManager.IsImperative(System.String)">
+        <member name="T:ArtificialArt.Markov.LetterMatrix">
             <summary>
-            Whether original proposition is imperative
+            Letter matrix
             </summary>
-            <param name="originalProposition">original proposition</param>
-            <returns>Whether original proposition is imperative</returns>
+        </member>
+        <member name="F:ArtificialArt.Markov.LetterMatrix.previousChar">
+            <summary>
+            Previous word
+            </summary>
+        </member>
+        <member name="F:ArtificialArt.Markov.LetterMatrix.previousPreviousChar">
+            <summary>
+            Previous previous word
+            </summary>
+        </member>
+        <member name="F:ArtificialArt.Markov.LetterMatrix.absoluteMatrix">
+            <summary>
+            Integer based letter matrix (key: starting pair of letter, value: (key: ending letter, value: count))
+            </summary>
+        </member>
+        <member name="M:ArtificialArt.Markov.LetterMatrix.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="lineList">Line list</param>
+        </member>
+        <member name="M:ArtificialArt.Markov.LetterMatrix.GenerateNextChar(System.Random)">
+            <summary>
+            Build a verse from letter markov matrix
+            </summary>
+            <param name="random">random number generator</param>
+            <returns>Verse</returns>
+        </member>
+        <member name="M:ArtificialArt.Markov.LetterMatrix.resetCursor">
+            <summary>
+            Reset cursor to begining
+            </summary>
+        </member>
+        <member name="M:ArtificialArt.Markov.LetterMatrix.Learn(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Char,System.Int32}},System.String)">
+            <summary>
+            Learn from text line
+            </summary>
+            <param name="absoluteMatrix">absolute matrix</param>
+            <param name="textLine">text line</param>
+        </member>
+        <member name="T:ArtificialArt.Linguistics.English.VerbManager">
+            <summary>
+            Manages analysis of verbs
+            </summary>
+        </member>
+        <member name="F:ArtificialArt.Linguistics.English.VerbManager.modalVerbList">
+            <summary>
+            List of modal verb
+            </summary>
+        </member>
+        <member name="F:ArtificialArt.Linguistics.English.VerbManager.irregularVerbList">
+            <summary>
+            List of irregular verb
+            </summary>
+        </member>
+        <member name="F:ArtificialArt.Linguistics.English.VerbManager.regularVerbList">
+            <summary>
+            List of regular verb
+            </summary>
+        </member>
+        <member name="F:ArtificialArt.Linguistics.English.VerbManager.undefinedVerbList">
+            <summary>
+            List of undefined verb
+            </summary>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.English.VerbManager.#ctor">
+            <summary>
+            Create verb manager
+            </summary>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.English.VerbManager.IsVerb(System.String)">
+            <summary>
+            Whether the word is a verb
+            </summary>
+            <param name="word">word</param>
+            <returns>Whether the word is a verb</returns>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.English.VerbManager.IsModalVerb(System.String)">
+            <summary>
+            Whether the word is in modal verb list
+            </summary>
+            <param name="word">word</param>
+            <returns>Whether the word is in modal verb list</returns>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.English.VerbManager.IsIrregularVerb(System.String)">
+            <summary>
+            Whether the word is in irregular verb list
+            </summary>
+            <param name="word">word</param>
+            <returns>Whether the word is in irregular verb list</returns>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.English.VerbManager.IsRegularVerb(System.String)">
+            <summary>
+            Whether the word is in regular verb list
+            </summary>
+            <param name="word">word</param>
+            <returns>Whether the word is in regular verb list</returns>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.English.VerbManager.IsUndefinedVerb(System.String)">
+            <summary>
+            Whether the word is in undefined verb list
+            </summary>
+            <param name="word">word</param>
+            <returns>Whether the word is in undefined verb list</returns>
+        </member>
+        <member name="T:ArtificialArt.Linguistics.English.SubjectObjectDetector">
+            <summary>
+            Manages the difference between subjects and objects
+            </summary>
+        </member>
+        <member name="F:ArtificialArt.Linguistics.English.SubjectObjectDetector.isSubject">
+            <summary>
+            When it is a subject
+            </summary>
+        </member>
+        <member name="F:ArtificialArt.Linguistics.English.SubjectObjectDetector.isObject">
+            <summary>
+            When it is an object
+            </summary>
+        </member>
+        <member name="M:ArtificialArt.Linguistics.English.SubjectObjectDetector.IsSubjectNotObject(ArtificialArt.Linguistics.Word)">
+            <summary>
+            Whether word is a subject and not an object according to provided context
+            </summary>
+            <param name="word">word</param>
+            <returns>Whether word is a subject and not an object according to provided context</returns>
         </member>
     </members>
 </doc>
