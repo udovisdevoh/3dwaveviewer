@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Waves;
+using ArtificialArt.Waves;
 
 namespace _3dWaves
 {
