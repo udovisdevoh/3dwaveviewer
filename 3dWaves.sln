@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3dWaves", "3dWaves.csproj", "{4AE3CA6D-74B6-4267-B2E7-52F9B309FB02}"
 EndProject
 Global
